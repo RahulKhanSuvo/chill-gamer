@@ -4,13 +4,45 @@ import AuthContext from "../Context/AuthContext";
 const AddReview = () => {
   const { users } = useContext(AuthContext);
   const genres = ["Action", "RPG", "Adventure", "Strategy", "Puzzle"];
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const coverURL = form.coverURL.value;
+    const title = form.title.value;
+    const description = form.description.value;
+    const rating = form.rating.value;
+    const year = form.year.value;
+    const genre = form.genre.value;
+    const review = {
+      coverURL,
+      title,
+      description,
+      rating,
+      year,
+      genre,
+      userEmail: users?.email,
+      userName: users?.displayName,
+    };
+    console.log(review);
+    fetch("http://localhost:4000/review", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(review),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
   return (
     <div>
       <div className="container mx-auto py-8">
         <h2 className="text-2xl font-bold text-center mb-6">Add New Review</h2>
         <form
           className="max-w-2xl mx-auto p-6 bg-white shadow-md rounded"
-          //   onSubmit={handleSubmit}
+          onSubmit={handleSubmit}
         >
           {/* Game Cover URL */}
           <div className="mb-4">
@@ -22,7 +54,6 @@ const AddReview = () => {
               name="coverURL"
               className="w-full px-4 py-2 border rounded"
               placeholder="Enter image URL"
-              required
             />
           </div>
 
