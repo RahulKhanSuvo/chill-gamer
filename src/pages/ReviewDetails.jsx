@@ -1,11 +1,8 @@
 import { useLoaderData } from "react-router-dom";
-import { useContext } from "react";
-import AuthContext from "../Context/AuthContext";
-import toast from "react-hot-toast";
 
 const ReviewDetails = () => {
   const details = useLoaderData();
-  const { users } = useContext(AuthContext); // Access the logged-in user
+
   const {
     coverURL,
     year,
@@ -16,7 +13,28 @@ const ReviewDetails = () => {
     userEmail,
     userName,
   } = details;
-
+  const list = {
+    year,
+    title,
+    description,
+    rating,
+    genre,
+    userEmail,
+    userName,
+  };
+  const handelWatchList = () => {
+    fetch("http://localhost:4000/watchList", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(list),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
   return (
     <div className="container mx-auto py-8">
       <div className="grid md:grid-cols-2 gap-6">
@@ -44,7 +62,10 @@ const ReviewDetails = () => {
           </p>
 
           {/* Add to WatchList Button */}
-          <button className="mt-6 bg-blue-500 text-white px-4 py-2 rounded">
+          <button
+            onClick={handelWatchList}
+            className="mt-6 bg-blue-500 text-white px-4 py-2 rounded"
+          >
             Add to WatchList
           </button>
         </div>

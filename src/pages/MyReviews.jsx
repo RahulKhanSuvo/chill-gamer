@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import AuthContext from "../Context/AuthContext";
+import { Link } from "react-router-dom";
 
 const MyReviews = () => {
   const { users } = useContext(AuthContext);
@@ -45,7 +46,9 @@ const MyReviews = () => {
                 <td>{myReview.rating}/10</td>
                 <td>{myReview.year}</td>
                 <td>
-                  <button className="btn btn-info btn-sm mx-1">Update</button>
+                  <Link to={`/updateReview/${myReview._id}`}>
+                    <button className="btn btn-info btn-sm mx-1">Update</button>
+                  </Link>
                   <button
                     onClick={() => handelDelete(myReview._id)}
                     className="btn btn-error btn-sm mx-1"
