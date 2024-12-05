@@ -13,13 +13,15 @@ const BestGames = ({ loadedGames }) => {
                 key={game._id}
                 className="p-4 bg-white flex flex-col shadow-lg "
               >
-                <div className="flex-grow">
+                <div className="flex-grow ">
                   {" "}
-                  <img
-                    src={game.image}
-                    alt={game.name}
-                    className="h-40 w-full object-cover transition-transform duration-300 hover:scale-110 ease-in-out rounded-sm"
-                  />
+                  <div className="overflow-hidden">
+                    <img
+                      src={game.image}
+                      alt={game.name}
+                      className="h-40  w-full object-cover transition-transform duration-300 hover:scale-110 ease-in-out rounded-sm"
+                    />
+                  </div>
                   <h2 className="text-lg font-bold mt-2">{game.name}</h2>
                   <p className="text-gray-500">Rating: {game.rating}/10</p>
                   <p className="text-gray-600">Genre: {game.genre}</p>
