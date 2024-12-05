@@ -8,6 +8,8 @@ import AllReviews from "../pages/AllReviews";
 import ReviewDetails from "../pages/ReviewDetails";
 import MyReviews from "../pages/MyReviews";
 import UpdateReview from "../pages/UpdateReview";
+import WatchList from "../pages/WatchList";
+import PrivateRouter from "../private/PrivateRouter";
 
 const router = createBrowserRouter([
   {
@@ -29,7 +31,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/add-review",
-        element: <AddReview></AddReview>,
+        element: (
+          <PrivateRouter>
+            <AddReview></AddReview>
+          </PrivateRouter>
+        ),
       },
       {
         path: "/all-reviews",
@@ -44,13 +50,25 @@ const router = createBrowserRouter([
       },
       {
         path: "/my-review",
-        element: <MyReviews></MyReviews>,
+        element: (
+          <PrivateRouter>
+            <MyReviews></MyReviews>
+          </PrivateRouter>
+        ),
       },
       {
         path: "/updateReview/:id",
         element: <UpdateReview></UpdateReview>,
         loader: ({ params }) =>
           fetch(`http://localhost:4000/review/${params.id}`),
+      },
+      {
+        path: "/watchlist",
+        element: (
+          <PrivateRouter>
+            <WatchList></WatchList>,
+          </PrivateRouter>
+        ),
       },
     ],
   },
