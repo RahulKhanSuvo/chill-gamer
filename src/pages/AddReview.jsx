@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import AuthContext from "../Context/AuthContext";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import ReactStars from "react-rating-stars-component"; // Import the ReactStars component
+import ReactStars from "react-rating-stars-component";
 import loginImage from "../assets/2.jpg";
 import toast from "react-hot-toast";
 
@@ -19,7 +19,7 @@ const AddReview = () => {
     "Battle Royale",
   ];
   const [year, setYear] = useState(null);
-  const [rating, setRating] = useState(0); // State for storing rating from stars
+  const [rating, setRating] = useState(0);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -50,25 +50,23 @@ const AddReview = () => {
       .then((data) => {
         if (data.insertedId) {
           toast.success("Review add successfully");
+          form.reset();
+          setYear(null);
         }
       });
   };
 
   return (
-    <div className="relative">
-      {/* Background Image with Overlay */}
-      <div
-        style={{ backgroundImage: `url(${loginImage})` }}
-        className="absolute inset-0 bg-cover bg-center bg-opacity-60"
-      >
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-[#6e6e6e] bg-opacity-80"></div>
-        <div className="relative z-10 py-24 text-center">
-          <h3 className="text-white font-bold text-4xl">Add Review</h3>
+    <div className="">
+      <div style={{ backgroundImage: `url(${loginImage})` }} className="">
+        <div className="bg-black bg-opacity-55 ">
+          <div className="container mx-auto py-4">
+            <h3 className="text-white text-center font-bold text-4xl">
+              Add Review
+            </h3>
+          </div>
         </div>
       </div>
-
-      {/* Form Container */}
       <div className="container mx-auto py-8 relative z-20">
         <form
           className="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-md"
@@ -113,7 +111,6 @@ const AddReview = () => {
             ></textarea>
           </div>
 
-          {/* Rating - ReactStars component with Half Stars enabled */}
           <div className="mb-4">
             <label className="block font-semibold mb-2">Rating (1-10)</label>
             <ReactStars
@@ -126,7 +123,7 @@ const AddReview = () => {
             />
           </div>
 
-          {/* Publishing Year - React DatePicker for Year */}
+          {/* Publishing Year*/}
           <div className="mb-4">
             <label className="block font-semibold mb-2">Publishing Year</label>
             <DatePicker

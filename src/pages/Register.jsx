@@ -1,10 +1,12 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import AuthContext from "../Context/AuthContext";
 import loginImage from "../assets/2.jpg";
 import toast from "react-hot-toast";
 const Register = () => {
   const { createUser, updateUser } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
   const handelSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -36,6 +38,7 @@ const Register = () => {
         updateUser({ displayName: name, photoURL: photo })
           .then(() => {
             toast.success("Registration successful! Welcome!");
+            navigate(location.state ? location.state : "/");
           })
           .catch(() => {
             toast.error("failed please provide valid information");
