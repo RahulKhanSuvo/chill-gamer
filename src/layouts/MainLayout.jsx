@@ -6,7 +6,7 @@ import ThemeToggle from "../pages/ThemeToggle";
 
 const MainLayout = () => {
   return (
-    <div className=" min-h-screen flex flex-col">
+    <div className=" min-h-screen dark:bg-[#181A1B] flex flex-col">
       <Header />
       <div className="fixed top-1/2 right-0 z-30 flex justify-end transform -translate-y-1/2">
         <ThemeToggle />

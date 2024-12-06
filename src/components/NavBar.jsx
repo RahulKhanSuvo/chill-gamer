@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { LuGamepad2 } from "react-icons/lu";
 import { Link, NavLink } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
@@ -8,7 +8,13 @@ import { HiMenuAlt1 } from "react-icons/hi";
 
 const NavBar = () => {
   const { users, userLogout } = useContext(AuthContext);
-  const [isOpen, setOpen] = useState(false); // Changed to false to make the menu closed by default
+  const [isOpen, setOpen] = useState(false);
+  useEffect(() => {
+    const handelScroll = () => {
+      if (isOpen) setOpen(false);
+    };
+    window.addEventListener("scroll", handelScroll);
+  }, [isOpen]);
   const links = (
     <>
       <NavLink to={"/"}>HOME</NavLink>
@@ -58,8 +64,8 @@ const NavBar = () => {
           </button>
         </div>
         <Link to={"/"}>
-          <div className="flex text-3xl items-center gap-2">
-            <LuGamepad2 className="text-4xl" />
+          <div className="flex items-center gap-2">
+            <LuGamepad2 className="md:text-4xl" />
             <h3 className=" font-bold">CHILL GAMER</h3>
           </div>
         </Link>
@@ -70,7 +76,7 @@ const NavBar = () => {
         {/* Auth Section */}
         <div>
           {users ? (
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 md:gap-4">
               {/* Avatar with Tooltip/Dropdown */}
               <div data-tip="This is a tooltip!" className="">
                 <img
@@ -85,7 +91,7 @@ const NavBar = () => {
               </div>
               <button
                 onClick={userLogout}
-                className="hover:text-black underline text-white px-4 py-2 rounded"
+                className="hover:text-black underline text-white "
               >
                 Logout
               </button>
@@ -106,10 +112,9 @@ const NavBar = () => {
         </div>
       </nav>
 
-      {/* Mobile Menu - Appears when menu is toggled */}
       <div
-        className={`fixed top-0 left-0 w-full bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${
-          isOpen ? "translate-y-[72px]" : "-translate-y-full"
+        className={`fixed top-0 left-0 w-full bg-white shadow-lg transform transition-transform  ${
+          isOpen ? "translate-y-[72px]" : "hidden"
         } lg:hidden`}
       >
         <div className="flex flex-col gap-2 container mx-auto p-4">{links}</div>

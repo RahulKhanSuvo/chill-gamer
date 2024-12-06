@@ -69,7 +69,7 @@ const AddReview = () => {
       </div>
       <div className="container mx-auto py-8 relative z-20">
         <form
-          className="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-md"
+          className="max-w-3xl mx-auto p-6 bg-white dark:bg-black shadow-md rounded-md"
           onSubmit={handleSubmit}
         >
           {/* Game Cover URL */}

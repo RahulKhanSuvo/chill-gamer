@@ -48,7 +48,7 @@ const MyReviews = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-center mb-6 text-gray-800">
+      <h1 className="text-3xl dark:text-white font-bold text-center mb-6 text-gray-800">
         My Reviews
       </h1>
 
@@ -78,7 +78,7 @@ const MyReviews = () => {
                   </tr>
                 </thead>
                 {/* Table Body */}
-                <tbody className="bg-white">
+                <tbody className="bg-white dark:bg-black">
                   {myReviews.map((myReview, index) => (
                     <tr key={myReview._id} className="border-b border-gray-200">
                       <td className="px-4 py-2">{index + 1}</td>

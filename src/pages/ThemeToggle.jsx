@@ -5,6 +5,8 @@ const ThemeToggle = () => {
   const [theme, setTheme] = useState("light");
 
   useEffect(() => {
+    const storedTheme = localStorage.getItem("theme") || "light";
+    setTheme(storedTheme);
     const root = document.documentElement;
     if (theme === "dark") {
       root.classList.add("dark");
@@ -29,13 +31,13 @@ const ThemeToggle = () => {
       />
 
       <div
-        className={`w-6 h-12 bg-orange-400 rounded-full cursor-pointer relative transition-all duration-300 ${
+        className={`w-5 h-10 bg-orange-400 rounded-full cursor-pointer relative transition-all duration-300 ${
           theme === "dark" ? "translate-y-0" : "translate-y-0"
         }`}
         onClick={toggleTheme}
       >
         <div
-          className={`w-6 h-6 bg-white rounded-full absolute top-0 left-0 transition-all duration-300 ${
+          className={`size-5 bg-white rounded-full absolute top-0 left-0 transition-all duration-300 ${
             theme === "dark" ? "translate-y-6" : "translate-y-0"
           }`}
         />

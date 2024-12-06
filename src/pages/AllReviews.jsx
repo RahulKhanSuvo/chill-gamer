@@ -21,7 +21,7 @@ const AllReviews = () => {
   };
 
   return (
-    <div className="bg-[#FBFBFB] mb-16">
+    <div className="bg-[#FBFBFB] dark:bg-[#181A1B] pb-16">
       <div className="container mx-auto">
         {/* Page Header */}
         <div className="flex justify-between items-center py-6">

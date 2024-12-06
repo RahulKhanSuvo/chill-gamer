@@ -84,7 +84,7 @@ const WatchList = () => {
                 </tr>
               </thead>
               {/* Table Body */}
-              <tbody className="bg-white">
+              <tbody className="bg-white dark:bg-black">
                 {watchList.map((game, index) => (
                   <tr key={game._id} className="border-b border-gray-200">
                     <td className="px-4 py-2">{index + 1}</td>
@@ -96,7 +96,7 @@ const WatchList = () => {
                       <div className="flex justify-center gap-2">
                         <Link
                           to={`/review/${game.id}`}
-                          className="w-fit px-4 py-2 border-2 border-[#F80136] text-black hover:text-white hover:bg-[#F80136]"
+                          className="w-fit px-4 py-2 border-2 border-[#F80136] text-black dark:text-white hover:text-white hover:bg-[#F80136]"
                         >
                           DETAILS
                         </Link>

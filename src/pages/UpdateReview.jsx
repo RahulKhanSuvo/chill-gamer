@@ -74,10 +74,10 @@ const UpdateReview = () => {
         style={{ backgroundImage: `url(${loadedData.coverURL})` }}
         className="inset-0 bg-cover bg-center bg-opacity-60"
       >
-        <div className="bg-opacity-55 bg-slate-500">
+        <div className="bg-opacity-55 bg-slate-600 dark:bg-[#181A1B] ">
           <div className="container mx-auto py-8 relative z-20">
             <form
-              className="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-md"
+              className="max-w-3xl mx-auto p-6 bg-white dark:bg-black shadow-md rounded-md"
               onSubmit={handleSubmit}
             >
               {/* Game Cover URL */}

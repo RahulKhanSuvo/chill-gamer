@@ -5,7 +5,7 @@ const CommentSection = () => {
   };
 
   return (
-    <div className="container mx-auto p-6 bg-white shadow-md rounded-md mt-8">
+    <div className="container mx-auto  bg-white shadow-md dark:bg-[#181A1B] mt-8">
       <h2 className="text-2xl font-bold mb-4">Leave a Reply</h2>
       <p className="text-gray-600 mb-6">
         Your email address will not be published. Required fields are marked{" "}
@@ -18,7 +18,7 @@ const CommentSection = () => {
             Comment <span className="text-red-500">*</span>
           </label>
           <textarea
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500 focus:outline-none"
+            className="w-full px-4 py-2 border border-gray-300  focus:ring-2 focus:ring-red-500 focus:outline-none"
             rows="6"
             placeholder="Write your comment..."
             required
@@ -32,7 +32,7 @@ const CommentSection = () => {
           </label>
           <input
             type="text"
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500 focus:outline-none"
+            className="w-full px-4 py-2 border border-gray-300  focus:ring-2 focus:ring-red-500 focus:outline-none"
             placeholder="Enter your name"
             required
           />
@@ -45,7 +45,7 @@ const CommentSection = () => {
           </label>
           <input
             type="email"
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500 focus:outline-none"
+            className="w-full px-4 py-2 border border-gray-300 focus:ring-2 focus:ring-red-500 focus:outline-none"
             placeholder="Enter your email"
             required
           />
@@ -55,7 +55,7 @@ const CommentSection = () => {
         <div className="flex items-center">
           <input
             type="checkbox"
-            className="w-4 h-4 text-red-500 border-gray-300 rounded focus:ring-red-500"
+            className="w-4 h-4 text-red-500 border-gray-300  focus:ring-red-500"
             id="save-info"
           />
           <label htmlFor="save-info" className="ml-2 text-sm text-gray-600">
@@ -68,7 +68,7 @@ const CommentSection = () => {
         <div>
           <button
             type="submit"
-            className="w-full bg-red-500 text-white py-2 rounded-md hover:bg-red-600 transition duration-200"
+            className="w-full bg-[#F80136] text-white py-2 hover:bg-red-600 transition duration-200"
           >
             Post Comment
           </button>

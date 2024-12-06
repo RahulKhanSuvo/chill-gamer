@@ -56,7 +56,7 @@ const ReviewDetails = () => {
         <img
           src={coverURL}
           alt={title}
-          className="w-full rounded-lg shadow-lg"
+          className="w-full h-[500px] rounded-lg object-cover shadow-lg"
         />
 
         {/* Game Details */}
@@ -66,7 +66,9 @@ const ReviewDetails = () => {
             <span className="font-semibold text-[#7E869B]">Year:</span>
             <p className="text-[#7E869B]">{year}</p>
           </div>
-          <h3 className="text-4xl font-bold text-gray-800 mt-4">{title}</h3>
+          <h3 className="text-4xl font-bold text-gray-800 dark:text-white mt-4">
+            {title}
+          </h3>
           <p className="mt-2">
             <span className="font-semibold text-gray-700">Genre:</span> {genre}
           </p>
@@ -100,7 +102,7 @@ const ReviewDetails = () => {
           {users && (
             <button
               onClick={handelWatchList}
-              className="mt-3 w-fit px-4 py-2 border-2 border-[#F80136] text-black hover:text-white  hover:bg-[#F80136]"
+              className="mt-3 w-fit px-4 py-2 border-2 border-[#F80136] text-black dark:text-white hover:text-white  hover:bg-[#F80136]"
             >
               Add to WatchList
             </button>
