@@ -12,7 +12,7 @@ const ReviewCard = ({ review }) => {
     review;
 
   return (
-    <div className="flex flex-col bg-white shadow-md rounded-md">
+    <div className="flex flex-col bg-white shadow-md pb-2 ">
       <div className="flex-grow">
         <img
           className="h-[400px] w-full object-cover rounded-t-md"

@@ -10,11 +10,13 @@ import MyReviews from "../pages/MyReviews";
 import UpdateReview from "../pages/UpdateReview";
 import WatchList from "../pages/WatchList";
 import PrivateRouter from "../private/PrivateRouter";
+import NotFound from "../pages/NotFound";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement: <NotFound></NotFound>,
     children: [
       {
         path: "/",

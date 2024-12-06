@@ -9,8 +9,9 @@ import AuthContext from "../Context/AuthContext";
 const ReviewDetails = () => {
   const details = useLoaderData();
   const { users } = useContext(AuthContext);
-
+  console.log(users);
   const {
+    _id,
     coverURL,
     year,
     title,
@@ -22,13 +23,14 @@ const ReviewDetails = () => {
   } = details;
 
   const list = {
+    id: _id,
     year,
     title,
     description,
     rating,
     genre,
-    userEmail,
-    userName,
+    userEmail: users.email,
+    userName: users.displayName,
   };
 
   const handelWatchList = () => {
