@@ -29,8 +29,8 @@ const ReviewDetails = () => {
     description,
     rating,
     genre,
-    userEmail: users.email,
-    userName: users.displayName,
+    userEmail: users?.email,
+    userName: users?.displayName,
   };
 
   const handelWatchList = () => {

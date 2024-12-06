@@ -12,9 +12,8 @@ const Register = () => {
     const name = form.name.value;
     const password = form.password.value;
     const photo = form.photo.value;
-    console.log(name);
     if (!email || !name || !password || !photo) {
-      toast.error("");
+      toast.error("your input field is empty");
       return;
     }
     const hasUppercase = /[A-Z]/.test(password);
@@ -42,8 +41,14 @@ const Register = () => {
             toast.error("failed please provide valid information");
           });
       })
-      .catch(() => {
-        toast.error("failed please provide valid information");
+      .catch((error) => {
+        if (error.code === "auth/email-already-in-use") {
+          toast.error("Email is already in use.");
+        } else if (error.code === "auth/weak-password") {
+          toast.error("Password is too weak.");
+        } else {
+          toast.error(error.message || "An error occurred.");
+        }
       });
   };
 

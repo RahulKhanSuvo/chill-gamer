@@ -2,12 +2,13 @@ import { useContext } from "react";
 import AuthContext from "../Context/AuthContext";
 import loginImage from "../assets/2.jpg";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { userLogin, userGoogleSignIn, userGitHubSignIn } =
     useContext(AuthContext);
-
+  const location = useLocation();
+  const navigate = useNavigate();
   const handelSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -20,6 +21,7 @@ const Login = () => {
     userLogin(email, password)
       .then(() => {
         toast.success("Login successful! Welcome back!");
+        navigate(location.state ? location.state : "/");
       })
       .catch(() => {
         toast.error("login failed please provide valid email & password");
@@ -30,9 +32,10 @@ const Login = () => {
     userGoogleSignIn()
       .then(() => {
         toast.success("Login successful! Welcome back!");
+        navigate(location.state ? location.state : "/");
       })
-      .catch((error) => {
-        console.error(error);
+      .catch(() => {
+        toast.error("failed please try again");
       });
   };
 
@@ -40,8 +43,9 @@ const Login = () => {
     userGitHubSignIn()
       .then(() => {
         toast.success("Login successful! Welcome back!");
+        navigate(location.state ? location.state : "/");
       })
-      .catch((error) => {
+      .catch(() => {
         toast.error("failed please try again");
       });
   };
