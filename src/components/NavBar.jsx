@@ -7,7 +7,6 @@ import { MdAccountCircle } from "react-icons/md";
 
 const NavBar = () => {
   const { users, userLogout } = useContext(AuthContext);
-  console.log(users);
   const links = (
     <>
       <NavLink to={"/"}>HOME</NavLink>
