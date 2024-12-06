@@ -9,11 +9,11 @@ const BestGames = ({ loadedGames }) => {
   return (
     <div className="w-full -translate-y-12   z-30 p-6 bg-white  container mx-auto ">
       <h2 className="font-medium bg-[#F80136] text-white text-xl py-4 px-4">
-        Best Games
+        Highest Rated Games
       </h2>
       <div style={{ backgroundImage: `url(${backgroundImage})` }} className="">
         <div className="bg-[#9a9a9b]  bg-opacity-80 p-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {loadedGames.map((game) => (
               <div
                 key={game._id}
@@ -24,15 +24,17 @@ const BestGames = ({ loadedGames }) => {
                   <div className="overflow-hidden">
                     <img
                       src={game.coverURL}
-                      alt={game.name}
-                      className="h-40  w-full object-cover transition-transform duration-300 hover:scale-110 ease-in-out rounded-sm"
+                      alt={game.title}
+                      className="h-[350px] w-full object-cover transition-transform duration-300 hover:scale-110 ease-in-out rounded-sm"
                     />
                   </div>
-                  <h2 className="text-lg font-bold mt-2">{game.name}</h2>
+                  <div className="clipped-div pr-2 pl-1 py-1 mt-2">
+                    <p className="text-white"> {game.genre}</p>
+                  </div>
+                  <h2 className="text-lg font-bold mt-2">{game.title}</h2>
                   <p className="text-gray-500">Rating: {game.rating}/10</p>
-                  <p className="text-gray-600">Genre: {game.genre}</p>
                   <p className="text-gray-600 truncate">
-                    Description: {truncateText(game.description, 20)}
+                    {truncateText(game.description, 25)}
                   </p>
                   <p className="text-gray-600">Year: {game.year}</p>
                 </div>

@@ -42,10 +42,12 @@ const NavBar = () => {
   return (
     <nav className="flex text-white container mx-auto items-center justify-between py-4">
       {/* Logo Section */}
-      <div className="flex items-center gap-2">
-        <LuGamepad2 className="text-2xl" />
-        <h3 className="text-lg font-bold">CHILL GAMER</h3>
-      </div>
+      <Link to={"/"}>
+        <div className="flex text-3xl items-center gap-2">
+          <LuGamepad2 className="text-4xl" />
+          <h3 className=" font-bold">CHILL GAMER</h3>
+        </div>
+      </Link>
 
       {/* Navigation Links */}
       <div className="space-x-4">{links}</div>

@@ -17,7 +17,7 @@ const WatchList = () => {
   return (
     <div>
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold text-center mb-6 text-gray-800">
+        <h1 className="text-3xl dark:text-white font-bold text-center mb-6 text-black">
           Game Watchlist
         </h1>
         <div className="overflow-x-auto">
