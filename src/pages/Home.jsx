@@ -9,7 +9,7 @@ const Home = () => {
     <div>
       <Slider></Slider>
       <div style={{ backgroundImage: `url(${bannerBg})` }} className="">
-        <div className="bg-[#f9fcff]  bg-opacity-80">
+        <div className="bg-[#f9fcff] dark:bg-[#181A1B]  bg-opacity-80">
           <BestGames loadedGames={loadedGames}></BestGames>
           <TechDeals></TechDeals>
         </div>

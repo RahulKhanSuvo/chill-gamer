@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ReviewCard from "../components/ReviewCard";
 
 const AllReviews = () => {
@@ -8,53 +8,17 @@ const AllReviews = () => {
   const [sortOption, setSortOption] = useState("");
   const [filterOption, setFilterOption] = useState("");
 
-  // Extract unique genres
   const uniqueGenres = [...new Set(loadedReview.map((review) => review.genre))];
 
-  // Sort Reviews
-  const sortReviews = (option, filteredReviews) => {
-    const sortedReviews = [...filteredReviews];
-    if (option === "ratingAsc") {
-      sortedReviews.sort((a, b) => a.rating - b.rating);
-    } else if (option === "ratingDesc") {
-      sortedReviews.sort((a, b) => b.rating - a.rating);
-    } else if (option === "yearAsc") {
-      sortedReviews.sort((a, b) => a.year - b.year);
-    } else if (option === "yearDesc") {
-      sortedReviews.sort((a, b) => b.year - a.year);
-    }
-    return sortedReviews;
-  };
-
-  // Filter Reviews
-  const filterReviews = (genre) => {
-    const filteredReviews = genre
-      ? loadedReview.filter((review) => review.genre === genre)
-      : loadedReview;
-    return sortReviews(sortOption, filteredReviews); // Apply sorting to filtered reviews
-  };
-
-  // Handle Sort Change
   const handleSortChange = (e) => {
     const option = e.target.value;
-    setSortOption(option);
-    const sortedFilteredReviews = sortReviews(option, reviews);
-    setReviews(sortedFilteredReviews);
+    console.log(option);
   };
 
-  // Handle Filter Change
   const handleFilterChange = (e) => {
     const genre = e.target.value;
-    setFilterOption(genre);
-    const filteredSortedReviews = filterReviews(genre);
-    setReviews(filteredSortedReviews);
+    console.log(genre);
   };
-
-  // Update Reviews on Initial Load or Reset
-  useEffect(() => {
-    const filteredSortedReviews = filterReviews(filterOption);
-    setReviews(filteredSortedReviews);
-  }, [loadedReview, filterOption]);
 
   return (
     <div className="bg-[#FBFBFB] mb-16">
