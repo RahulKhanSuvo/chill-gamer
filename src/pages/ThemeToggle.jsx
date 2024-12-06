@@ -31,9 +31,7 @@ const ThemeToggle = () => {
       />
 
       <div
-        className={`w-5 h-10 bg-orange-400 rounded-full cursor-pointer relative transition-all duration-300 ${
-          theme === "dark" ? "translate-y-0" : "translate-y-0"
-        }`}
+        className={`w-5 h-10 bg-orange-400 rounded-full cursor-pointer relative transition-all duration-300`}
         onClick={toggleTheme}
       >
         <div
