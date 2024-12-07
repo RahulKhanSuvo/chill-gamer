@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import backgroundImage from "../assets/aroplane-fight.jpg";
 const BestGames = ({ loadedGames }) => {
-  console.log(loadedGames);
   const truncateText = (text, limit) =>
     text.split(" ").length > limit
       ? text.split(" ").slice(0, limit).join(" ") + "..."
@@ -12,7 +11,7 @@ const BestGames = ({ loadedGames }) => {
         Highest Rated Games
       </h2>
       <div style={{ backgroundImage: `url(${backgroundImage})` }} className="">
-        <div className="bg-[#474747]  bg-opacity-80 p-6">
+        <div className="bg-[#474747]  bg-opacity-80 p-2 md:p-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {loadedGames.map((game) => (
               <div
@@ -25,7 +24,7 @@ const BestGames = ({ loadedGames }) => {
                     <img
                       src={game.coverURL}
                       alt={game.title}
-                      className="h-[350px] w-full object-cover transition-transform duration-300 hover:scale-110 ease-in-out rounded-sm"
+                      className=" md:h-[350px] w-full object-cover transition-transform duration-300 hover:scale-110 ease-in-out rounded-sm"
                     />
                   </div>
                   <div className="clipped-div pr-2 pl-1 py-1 mt-2">

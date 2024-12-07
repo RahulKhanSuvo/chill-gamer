@@ -32,11 +32,9 @@ const AllReviews = () => {
   return (
     <div className="bg-[#FBFBFB] dark:bg-[#181A1B] pb-16">
       <div className="container mx-auto">
-        {/* Page Header */}
         <div className="flex flex-col justify-between items-center py-6">
           <h2 className="text-2xl font-bold text-center">All Reviews</h2>
 
-          {/* Filter and Sort Dropdowns */}
           <div className="flex flex-wrap justify-between items-center space-x-4">
             {/* Filter Dropdown */}
             <div>

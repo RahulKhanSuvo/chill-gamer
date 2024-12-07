@@ -6,18 +6,16 @@ import Swal from "sweetalert2";
 const MyReviews = () => {
   const { users } = useContext(AuthContext);
   const [myReviews, setMyReviews] = useState([]);
-  const [loading, setLoading] = useState(true); // New loading state
-
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetch(`http://localhost:4000/myReviews?email=${users.email}`)
       .then((res) => res.json())
       .then((data) => {
         setMyReviews(data);
-        setLoading(false); // Stop loading after data is fetched
+        setLoading(false);
       })
-      .catch((error) => {
-        console.error("Error fetching reviews:", error);
-        setLoading(false); // Stop loading even if there's an error
+      .catch(() => {
+        setLoading(false);
       });
   }, [users]);
 

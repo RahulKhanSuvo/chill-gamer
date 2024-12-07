@@ -3,6 +3,7 @@ import BestGames from "../components/BestGames";
 import Slider from "../components/Slider";
 import bannerBg from "../assets/aroplane-fight.jpg";
 import TechDeals from "../components/TechDeals";
+import GameStore from "../components/GameStore";
 const Home = () => {
   const loadedGames = useLoaderData();
   return (
@@ -11,10 +12,14 @@ const Home = () => {
       <div style={{ backgroundImage: `url(${bannerBg})` }} className="">
         <div className="bg-[#f9fcff] dark:bg-[#181A1B]  bg-opacity-80">
           <BestGames loadedGames={loadedGames}></BestGames>
-          <TechDeals></TechDeals>
         </div>
       </div>
-      <div></div>
+      <div className="bg-white dark:bg-[#181A1B]">
+        <TechDeals></TechDeals>
+      </div>
+      <div className="bg-[#F6F6F6] dark:bg-[#1D2021]">
+        <GameStore></GameStore>
+      </div>
     </div>
   );
 };

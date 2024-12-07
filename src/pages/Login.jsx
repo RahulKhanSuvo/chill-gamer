@@ -60,27 +60,30 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <div className="container my-20 mx-auto">
+      <div className="container  dark:bg-[#181A1B] my-20 mx-auto">
         {" "}
         <div className=" flex flex-col text-black">
-          <p className="mb-6 font-medium text-2xl">Welcome Back</p>
+          <p className="mb-6 dark:text-white font-medium text-2xl">
+            Welcome Back
+          </p>
           <form onSubmit={handelSubmit}>
             <div className="mb-4 flex flex-col">
-              <span className="font-medium text-xl">Email</span>
+              <span className="font-medium text-xl dark:text-white">Email</span>
               <input
                 type="email"
                 name="email"
-                placeholder="Enter Email"
-                className=" md:w-[55%] lg:w-[35%] p-3 border border-black  text-b focus:outline-none  placeholder-white"
+                className=" md:w-[55%] lg:w-[35%] p-3 dark:border-white border border-black   focus:outline-none dark:text-white "
               />
             </div>
             <div className="mb-4 flex flex-col">
-              <span className="font-medium text-xl">Password</span>
+              <span className="font-medium text-xl dark:text-white">
+                Password
+              </span>
               <input
                 type="password"
                 name="password"
-                placeholder="Enter Password"
-                className="md:w-[55%]  lg:w-[35%] p-3 border border-black  text-black focus:outline-none focus:ring-red-500 placeholder-white"
+                className="md:w-[55%] 
+                dark:text-white dark:border-white lg:w-[35%] p-3 border border-black  text-black   focus:outline-none focus:ring-red-500 placeholder-white"
               />
             </div>
             <div className="mb-6">
@@ -97,7 +100,7 @@ const Login = () => {
           </form>
           <div className="mt-4">
             <p>
-              Don't have an account?{" "}
+              <span className="dark:text-white">Don't have an account?</span>{" "}
               <Link className="text-red-600" to={"/register"}>
                 Register now !
               </Link>{" "}
@@ -114,7 +117,7 @@ const Login = () => {
                 Sign In with Google
               </button>
             </div>
-            <h3>or</h3>
+            <h3 className="dark:text-white">or</h3>
             {/* GitHub Sign-In Button */}
             <div className="mt-4">
               <button

@@ -38,7 +38,7 @@ const AddReview = () => {
       userEmail: users?.email,
       userName: users?.displayName,
     };
-    console.log(review);
+
     fetch("http://localhost:4000/review", {
       method: "POST",
       headers: {
