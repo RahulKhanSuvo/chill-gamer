@@ -10,6 +10,8 @@ import "swiper/swiper-bundle.css";
 import "../style/slider.css"; // For custom styles
 import { CgProfile } from "react-icons/cg";
 import { MdAccessTime } from "react-icons/md";
+import { Typewriter } from "react-simple-typewriter";
+import { Fade, Zoom } from "react-awesome-reveal";
 
 const Slider = () => {
   const slides = [
@@ -52,7 +54,7 @@ const Slider = () => {
         spaceBetween={50}
         slidesPerView={1}
         loop={true}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        autoplay={{ delay: 4000, disableOnInteraction: false }}
         navigation={{
           nextEl: ".custom-next",
           prevEl: ".custom-prev",
@@ -69,17 +71,29 @@ const Slider = () => {
               {/* Overlay */}
               <div className="absolute inset-0 bg-black opacity-50"></div>
               {/* Content */}
-              <div className="absolute container mx-auto inset-0 flex flex-col justify-center items-start  text-white px-4 ">
+              <div className="absolute container mx-auto inset-0 flex flex-col justify-center items-start text-white px-4">
                 <h3 className="flex items-center gap-2 text-sm sm:text-base">
                   <FaRegCalendarAlt className="text-[#F80136]" />
                   {slide.date}
                 </h3>
-                <h1 className="text-xl sm:text-3xl md:text-4xl font-semibold max-w-2xl hover:text-[#F80136] transition-colors duration-200 cursor-pointer">
-                  {slide.title}
-                </h1>
-                <p className="mt-4 max-w-2xl text-sm sm:text-lg md:text-lg mb-3">
-                  {slide.description}
-                </p>
+                <Fade cascade>
+                  <h1 className="text-xl sm:text-3xl md:text-4xl font-semibold max-w-2xl hover:text-[#F80136] transition-colors duration-200 cursor-pointer">
+                    <Typewriter
+                      words={[slide.title]}
+                      loop={true}
+                      cursor
+                      cursorStyle="|"
+                      typeSpeed={50}
+                      deleteSpeed={30}
+                      delaySpeed={2000}
+                    />
+                  </h1>
+                </Fade>
+                <Fade d>
+                  <p className="mt-4 max-w-2xl text-sm sm:text-lg md:text-lg mb-3">
+                    {slide.description}
+                  </p>
+                </Fade>
                 <div className="flex flex-wrap gap-4 items-center">
                   <h3 className="flex items-center gap-1 text-sm">
                     <CgProfile className="text-[#F80136]" />

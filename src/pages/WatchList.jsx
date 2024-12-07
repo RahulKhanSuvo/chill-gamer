@@ -50,7 +50,7 @@ const WatchList = () => {
               setWatchList(watchList.filter((game) => game._id !== id));
             }
           })
-          .catch((err) => {
+          .catch(() => {
             Swal.fire("Error!", "Failed to delete the game.", "error");
           });
       }
@@ -59,7 +59,7 @@ const WatchList = () => {
 
   return (
     <div>
-      <div className="container mx-auto px-4 py-8">
+      <div className="container min-h-[calc(100vh-100px)] mx-auto px-4 py-8">
         <h1 className="text-3xl dark:text-white font-bold text-center mb-6 text-black">
           Game Watchlist
         </h1>

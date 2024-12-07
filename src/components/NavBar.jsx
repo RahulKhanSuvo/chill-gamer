@@ -19,31 +19,27 @@ const NavBar = () => {
     <>
       <NavLink to={"/"}>HOME</NavLink>
       <NavLink to={"/all-reviews"}>ALL REVIEWS</NavLink>
-      {users && (
-        <>
-          <NavLink
-            to="/add-review"
-            className="hover:text-black"
-            aria-label="Go to Add Review"
-          >
-            ADD REVIEW
-          </NavLink>
-          <NavLink
-            to="/my-review"
-            className="hover:text-black"
-            aria-label="Go to My Reviews"
-          >
-            MY REVIEWS
-          </NavLink>
-          <NavLink
-            to="/watchlist"
-            className="hover:text-black"
-            aria-label="Go to Game Watchlist"
-          >
-            GAME WATCHLIST
-          </NavLink>
-        </>
-      )}
+      <NavLink
+        to="/add-review"
+        className="hover:text-black"
+        aria-label="Go to Add Review"
+      >
+        ADD REVIEW
+      </NavLink>
+      <NavLink
+        to="/my-review"
+        className="hover:text-black"
+        aria-label="Go to My Reviews"
+      >
+        MY REVIEWS
+      </NavLink>
+      <NavLink
+        to="/watchlist"
+        className="hover:text-black"
+        aria-label="Go to Game Watchlist"
+      >
+        GAME WATCHLIST
+      </NavLink>
     </>
   );
 

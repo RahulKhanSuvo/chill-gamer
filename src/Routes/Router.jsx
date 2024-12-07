@@ -16,7 +16,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-    // errorElement: <NotFound></NotFound>,
+    errorElement: <NotFound></NotFound>,
     children: [
       {
         path: "/",
@@ -72,7 +72,7 @@ const router = createBrowserRouter([
         path: "/watchlist",
         element: (
           <PrivateRouter>
-            <WatchList></WatchList>,
+            <WatchList></WatchList>
           </PrivateRouter>
         ),
       },

@@ -13,6 +13,7 @@ const ThemeToggle = () => {
     } else {
       root.classList.remove("dark");
     }
+    document.documentElement.setAttribute("data-theme", storedTheme);
   }, [theme]);
 
   const toggleTheme = () => {
