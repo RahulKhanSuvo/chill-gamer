@@ -1,16 +1,15 @@
-import { useLoaderData } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ReviewCard from "../components/ReviewCard";
 
 const AllReviews = () => {
-  const loadedReview = useLoaderData();
-  const [reviews, setReviews] = useState(loadedReview);
+  const [reviews, setReviews] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState({
     genre: "",
     sortBy: "",
   });
 
-  const uniqueGenres = [...new Set(loadedReview.map((review) => review.genre))];
+  const [uniqueGenres, setUniqueGenres] = useState([]);
 
   const handleSortChange = (e) => {
     setFilters({ ...filters, sortBy: e.target.value });
@@ -21,12 +20,44 @@ const AllReviews = () => {
   };
 
   useEffect(() => {
-    const query = new URLSearchParams(filters).toString();
-    fetch(`https://chill-gamer-server-dusky.vercel.app/reviews?${query}`)
-      .then((res) => res.json())
-      .then((data) => {
+    const fetchReviews = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch(
+          "https://chill-gamer-server-dusky.vercel.app/reviews"
+        );
+        const data = await response.json();
         setReviews(data);
-      });
+        const genres = [...new Set(data.map((review) => review.genre))];
+        setUniqueGenres(genres);
+      } catch (error) {
+        console.error("Error fetching reviews:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchReviews();
+  }, []);
+
+  useEffect(() => {
+    const fetchFilteredReviews = async () => {
+      setLoading(true);
+      const query = new URLSearchParams(filters).toString();
+      try {
+        const response = await fetch(
+          `https://chill-gamer-server-dusky.vercel.app/reviews?${query}`
+        );
+        const data = await response.json();
+        setReviews(data);
+      } catch (error) {
+        console.error("Error fetching filtered reviews:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchFilteredReviews();
   }, [filters]);
 
   return (
@@ -81,12 +112,17 @@ const AllReviews = () => {
           </div>
         </div>
 
-        {/* Reviews Grid */}
-        <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {reviews.map((review) => (
-            <ReviewCard review={review} key={review._id}></ReviewCard>
-          ))}
-        </div>
+        {loading ? (
+          <div className="flex justify-center items-center h-64">
+            <div className="size-10 border-4 border-[#F80136] border-dotted rounded-full animate-spin"></div>
+          </div>
+        ) : (
+          <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            {reviews.map((review) => (
+              <ReviewCard review={review} key={review._id}></ReviewCard>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

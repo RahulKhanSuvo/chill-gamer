@@ -43,8 +43,6 @@ const router = createBrowserRouter([
       {
         path: "/all-reviews",
         element: <AllReviews></AllReviews>,
-        loader: () =>
-          fetch("https://chill-gamer-server-dusky.vercel.app/review"),
       },
       {
         path: "/review/:id",

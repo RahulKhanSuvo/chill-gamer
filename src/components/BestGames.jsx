@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import backgroundImage from "../assets/aroplane-fight.jpg";
+import { Fade } from "react-awesome-reveal";
 const BestGames = ({ loadedGames }) => {
   const truncateText = (text, limit) =>
     text.split(" ").length > limit
@@ -7,9 +8,12 @@ const BestGames = ({ loadedGames }) => {
       : text;
   return (
     <div className="w-full -translate-y-12   z-30 p-6 bg-white dark:bg-black  container mx-auto ">
-      <h2 className="font-medium bg-[#F80136] text-white text-xl py-4 px-4">
-        Highest Rated Games
-      </h2>
+      <Fade>
+        <h2 className="font-medium bg-[#F80136] text-white text-xl py-4 px-4">
+          Highest Rated Games
+        </h2>
+      </Fade>
+
       <div style={{ backgroundImage: `url(${backgroundImage})` }} className="">
         <div className="bg-[#474747]  bg-opacity-80 p-2 md:p-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
