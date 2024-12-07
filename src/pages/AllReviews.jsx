@@ -22,7 +22,7 @@ const AllReviews = () => {
 
   useEffect(() => {
     const query = new URLSearchParams(filters).toString();
-    fetch(`http://localhost:4000/reviews?${query}`)
+    fetch(`https://chill-gamer-server-dusky.vercel.app/reviews?${query}`)
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);

@@ -10,7 +10,9 @@ const WatchList = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/watchList?email=${users.email}`)
+    fetch(
+      `https://chill-gamer-server-dusky.vercel.app/watchList?email=${users.email}`
+    )
       .then((res) => {
         if (!res.ok) {
           throw new Error("Failed to fetch watchlist");
@@ -38,7 +40,9 @@ const WatchList = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:4000/watchList/${id}`, { method: "DELETE" })
+        fetch(`https://chill-gamer-server-dusky.vercel.app/watchList/${id}`, {
+          method: "DELETE",
+        })
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {

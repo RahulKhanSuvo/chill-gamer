@@ -8,7 +8,9 @@ const MyReviews = () => {
   const [myReviews, setMyReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch(`http://localhost:4000/myReviews?email=${users.email}`)
+    fetch(
+      `https://chill-gamer-server-dusky.vercel.app/myReviews?email=${users.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setMyReviews(data);
@@ -30,7 +32,9 @@ const MyReviews = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:4000/myReviews/${id}`, { method: "DELETE" })
+        fetch(`https://chill-gamer-server-dusky.vercel.app/myReviews/${id}`, {
+          method: "DELETE",
+        })
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {

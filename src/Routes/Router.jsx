@@ -21,7 +21,8 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:4000/games"),
+        loader: () =>
+          fetch("https://chill-gamer-server-dusky.vercel.app/games"),
       },
       {
         path: "/login",
@@ -42,13 +43,16 @@ const router = createBrowserRouter([
       {
         path: "/all-reviews",
         element: <AllReviews></AllReviews>,
-        loader: () => fetch("http://localhost:4000/review"),
+        loader: () =>
+          fetch("https://chill-gamer-server-dusky.vercel.app/review"),
       },
       {
         path: "/review/:id",
         element: <ReviewDetails></ReviewDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:4000/review/${params.id}`),
+          fetch(
+            `https://chill-gamer-server-dusky.vercel.app/review/${params.id}`
+          ),
       },
       {
         path: "/my-review",
@@ -62,7 +66,9 @@ const router = createBrowserRouter([
         path: "/updateReview/:id",
         element: <UpdateReview></UpdateReview>,
         loader: ({ params }) =>
-          fetch(`http://localhost:4000/review/${params.id}`),
+          fetch(
+            `https://chill-gamer-server-dusky.vercel.app/review/${params.id}`
+          ),
       },
       {
         path: "/watchlist",

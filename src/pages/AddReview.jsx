@@ -39,7 +39,7 @@ const AddReview = () => {
       userName: users?.displayName,
     };
 
-    fetch("http://localhost:4000/review", {
+    fetch("https://chill-gamer-server-dusky.vercel.app/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",

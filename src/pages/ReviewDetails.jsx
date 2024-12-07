@@ -9,7 +9,7 @@ import AuthContext from "../Context/AuthContext";
 const ReviewDetails = () => {
   const details = useLoaderData();
   const { users } = useContext(AuthContext);
-  console.log(users);
+
   const {
     _id,
     coverURL,
@@ -34,7 +34,7 @@ const ReviewDetails = () => {
   };
 
   const handelWatchList = () => {
-    fetch("http://localhost:4000/watchList", {
+    fetch("https://chill-gamer-server-dusky.vercel.app/watchList", {
       method: "POST",
       headers: {
         "content-type": "application/json",
