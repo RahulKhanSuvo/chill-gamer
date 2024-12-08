@@ -4,7 +4,7 @@ import AuthContext from "../Context/AuthContext";
 import loginImage from "../assets/2.jpg";
 import toast from "react-hot-toast";
 const Register = () => {
-  const { createUser, updateUser } = useContext(AuthContext);
+  const { createUser, updateUser, setLoading } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   const handelSubmit = (e) => {
@@ -37,21 +37,18 @@ const Register = () => {
       .then(() => {
         updateUser({ displayName: name, photoURL: photo })
           .then(() => {
-            toast.success("Registration successful! Welcome!");
+            setLoading(false);
+            toast.success("Registration successful!");
             navigate(location.state ? location.state : "/");
           })
-          .catch(() => {
-            toast.error("failed please provide valid information");
+          .catch((updateError) => {
+            console.error("Error updating user profile:", updateError);
+            toast.error("Failed to update user profile.");
           });
       })
       .catch((error) => {
-        if (error.code === "auth/email-already-in-use") {
-          toast.error("Email is already in use.");
-        } else if (error.code === "auth/weak-password") {
-          toast.error("Password is too weak.");
-        } else {
-          toast.error(error.message || "An error occurred.");
-        }
+        console.error("Error creating user:", error);
+        toast.error(error.message || "An error occurred.");
       });
   };
 

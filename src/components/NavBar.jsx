@@ -5,7 +5,6 @@ import { Tooltip } from "react-tooltip";
 import AuthContext from "../Context/AuthContext";
 import { MdAccountCircle, MdClose } from "react-icons/md";
 import { HiMenuAlt1 } from "react-icons/hi";
-import { FaUserAlt } from "react-icons/fa";
 
 const NavBar = () => {
   const { users, userLogout } = useContext(AuthContext);
@@ -150,29 +149,15 @@ const NavBar = () => {
           {users ? (
             <div className="flex items-center gap-2 md:gap-4">
               <div data-tip="This is a tooltip!">
-                {users?.photoURL ? (
-                  <>
-                    <img
-                      data-tooltip-id="my-tooltip"
-                      data-tooltip-content={users.displayName}
-                      data-tooltip-place="top"
-                      src={users?.photoURL}
-                      alt="User Avatar"
-                      className="w-10 h-10 rounded-full cursor-pointer"
-                    />
-                    <Tooltip id="my-tooltip" />
-                  </>
-                ) : (
-                  <div>
-                    <FaUserAlt
-                      data-tooltip-id="my-tooltip"
-                      data-tooltip-content={users?.displayName}
-                      data-tooltip-place="top"
-                      className="w-10 h-10 text-white cursor-pointer"
-                    />
-                    <Tooltip id="my-tooltip" />
-                  </div>
-                )}
+                <img
+                  data-tooltip-id="my-tooltip"
+                  data-tooltip-content={users?.displayName}
+                  data-tooltip-place="top"
+                  src={users?.photoURL}
+                  alt="User Avatar"
+                  className="w-10 h-10 rounded-full cursor-pointer"
+                />
+                <Tooltip id="my-tooltip" />
               </div>
               <button
                 onClick={userLogout}
