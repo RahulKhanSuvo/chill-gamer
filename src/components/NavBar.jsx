@@ -8,6 +8,7 @@ import { HiMenuAlt1 } from "react-icons/hi";
 
 const NavBar = () => {
   const { users, userLogout } = useContext(AuthContext);
+  console.log(users);
 
   const [isOpen, setOpen] = useState(false);
 
