@@ -156,7 +156,7 @@ const NavBar = () => {
                       data-tooltip-id="my-tooltip"
                       data-tooltip-content={users.displayName}
                       data-tooltip-place="top"
-                      src={users.photoURL}
+                      src={users?.photoURL}
                       alt="User Avatar"
                       className="w-10 h-10 rounded-full cursor-pointer"
                     />
@@ -166,7 +166,7 @@ const NavBar = () => {
                   <div>
                     <FaUserAlt
                       data-tooltip-id="my-tooltip"
-                      data-tooltip-content={users.displayName}
+                      data-tooltip-content={users?.displayName}
                       data-tooltip-place="top"
                       className="w-10 h-10 text-white cursor-pointer"
                     />
