@@ -34,18 +34,15 @@ const GameStore = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <Fade cascade damping={0.2}>
           {products.map((product, index) => (
-            <div
-              key={index}
-              className={` r ${product.outOfStock ? "opacity-60" : ""}`}
-            >
-              <div className="bg-white rounded-lg overflow-hidden shadow-md transition-transform transform hover:scale-105 duration-300">
+            <div key={index} className="group cursor-pointer">
+              <div className="bg-white rounded-lg overflow-hidden shadow-md ">
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-40 object-contain mb-4"
+                  className="w-full transition-transform transform group-hover:scale-105 duration-300 h-40 object-contain mb-4"
                 />
               </div>
-              <h3 className="text-lg font-medium text-gray-800 dark:text-white">
+              <h3 className="text-lg font-medium group-hover:text-[#F80136] text-gray-800 dark:text-white">
                 {product.name}
               </h3>
               <p className="text-gray-600">{product.price}</p>
