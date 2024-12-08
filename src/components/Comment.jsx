@@ -5,7 +5,7 @@ const CommentSection = () => {
   };
 
   return (
-    <div className="container mx-auto  bg-white shadow-md dark:bg-[#181A1B] mt-8">
+    <div className="lg:container mx-auto  bg-white  dark:bg-[#181A1B] mt-8">
       <h2 className="text-2xl font-bold mb-4">Leave a Reply</h2>
       <p className="text-gray-600 mb-6">
         Your email address will not be published. Required fields are marked{" "}

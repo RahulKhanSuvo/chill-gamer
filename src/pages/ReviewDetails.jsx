@@ -5,6 +5,7 @@ import CommentSection from "../components/Comment";
 import toast from "react-hot-toast";
 import { useContext } from "react";
 import AuthContext from "../Context/AuthContext";
+import { MdPermIdentity } from "react-icons/md";
 
 const ReviewDetails = () => {
   const details = useLoaderData();
@@ -51,13 +52,12 @@ const ReviewDetails = () => {
 
   return (
     <div className="bg-white  dark:bg-[#181A1B]">
-      <div className="container mx-auto py-8">
+      <div className="lg:container mx-4 md:mx-6 lg:mx-auto py-8">
         <div>
-          {/* Game Cover Image */}
           <img
             src={coverURL}
             alt={title}
-            className="w-full h-[500px] rounded-lg object-cover shadow-lg"
+            className="w-full md:h-[500px] rounded-lg object-cover shadow-lg"
           />
 
           {/* Game Details */}
@@ -67,47 +67,57 @@ const ReviewDetails = () => {
               <span className="font-semibold text-[#7E869B]">Year:</span>
               <p className="text-[#7E869B]">{year}</p>
             </div>
-            <h3 className="text-4xl font-bold text-gray-800 dark:text-white mt-4">
-              {title}
-            </h3>
+            <div className="flex flex-col md:flex-row justify-between">
+              {" "}
+              <h3 className="md:text-4xl text-2xl font-bold text-gray-800 dark:text-white mt-4">
+                {title}
+              </h3>
+              {users && (
+                <button
+                  onClick={handelWatchList}
+                  className="mt-4 w-fit px-4 py-2 border-2 border-[#F80136] text-black dark:text-white hover:text-white  hover:bg-[#F80136]"
+                >
+                  Add to WatchList
+                </button>
+              )}
+            </div>
             <div className="clipped-div pr-2 pl-1 py-1 bg-[#00c110]  mt-2">
               <p className="text-white">{genre}</p>
             </div>
 
-            {/* Rating with react-rating-stars-component */}
             <div className="mt-2">
               <span className="font-semibold text-gray-700">Rating:</span>
               <ReactStars
-                count={10} // 10 stars scale
+                count={10}
                 size={24}
                 activeColor="#F80136"
                 value={rating}
-                edit={false} // Disable editing
+                edit={false}
               />
               <span className="ml-2 text-gray-600">{rating}/10</span>
             </div>
 
-            {/* Description */}
-            <p className="mt-4">
-              <span className="font-semibold text-gray-700">Description:</span>{" "}
-              {description}
-            </p>
+            <p className="mt-4"> {description}</p>
 
-            {/* Reviewed By */}
-            <p className="mt-4 text-gray-700">
-              <span className="font-semibold">Reviewed By:</span> {userName} (
-              {userEmail})
-            </p>
+            <div className="mt-5 p-4 bg-gray-100 dark:bg-[#1E1F23] ">
+              <p className="text-lg font-semibold text-gray-800 dark:text-gray-300 mb-3">
+                About Reviewer
+              </p>
+              <div className="flex items-center gap-4">
+                {/* Icon or Avatar */}
+                <MdPermIdentity className="text-[#F80136]" size={50} />
 
-            {/* Add to WatchList Button */}
-            {users && (
-              <button
-                onClick={handelWatchList}
-                className="mt-3 w-fit px-4 py-2 border-2 border-[#F80136] text-black dark:text-white hover:text-white  hover:bg-[#F80136]"
-              >
-                Add to WatchList
-              </button>
-            )}
+                {/* Reviewer Details */}
+                <div className="flex flex-col">
+                  <p className="text-xl font-medium text-gray-800 dark:text-white">
+                    {userName}
+                  </p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    {userEmail}
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
