@@ -5,7 +5,7 @@ const TechDeals = () => {
     {
       title: "Tom Clancy's the Division Server Problems Are Fixed",
       date: "07.18.2017",
-      category: "Comic Store",
+      category: "Gaming News",
       description:
         "The release of Tom Clancy’s The Division was a disaster after game servers kept crashing...",
       image: "https://i.ibb.co.com/b7XW6Dn/post-25-copyright-760x567.jpg",
@@ -14,7 +14,7 @@ const TechDeals = () => {
     {
       title: "E3 2017 — Top 10 Sports Games",
       date: "07.14.2017",
-      category: "Comic Store",
+      category: "E3 Highlights",
       description:
         "Sports simulators have a small, but passionate audience. This E3 won’t disappoint them. We are...",
       image: "https://i.ibb.co.com/3spJ1Qv/image.png",
@@ -23,7 +23,7 @@ const TechDeals = () => {
     {
       title: "Dishonored PC Release Scheduled on Summer 2018",
       date: "07.10.2017",
-      category: "Comic Store",
+      category: "Upcoming Releases",
       description:
         "After all console gamers praised Dishonored and named it “Game Of The Year” Arkane Studios...",
       image: "https://i.ibb.co.com/CMnQ85D/image.png",
@@ -32,13 +32,14 @@ const TechDeals = () => {
     {
       title: "Assassin’s Creed: Another One Bites The Dust",
       date: "07.10.2017",
-      category: "Comic Store",
+      category: "Ubisoft",
       description:
         "Another year, another mediocre game from Ubisoft. Looks like the French studio is only aiming...",
       image: "https://i.ibb.co.com/sPvJ5bP/image.png",
       views: 8,
     },
   ];
+
   const guides = [
     {
       title: "Tom Clancy's The Division Review",
