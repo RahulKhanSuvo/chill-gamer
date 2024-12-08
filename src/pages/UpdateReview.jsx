@@ -67,7 +67,7 @@ const UpdateReview = () => {
       <div style={{ backgroundImage: `url(${loginImage})` }} className="">
         <div className="bg-black bg-opacity-55 ">
           <div className="container mx-auto py-4">
-            <h3 className="text-white text-center font-bold text-4xl">
+            <h3 className="text-white text-center font-bold text-2xl md:text-4xl">
               Update Review
             </h3>
           </div>
@@ -78,7 +78,7 @@ const UpdateReview = () => {
         className="inset-0 bg-cover bg-center bg-opacity-60"
       >
         <div className="bg-opacity-55 bg-slate-600 dark:bg-[#181A1B] ">
-          <div className="container mx-auto py-8 relative z-20">
+          <div className="lg:container lg:mx-auto mx-4 md:mx-6 py-8 relative z-20">
             <form
               className="max-w-3xl mx-auto p-6 bg-white dark:bg-black shadow-md rounded-md"
               onSubmit={handleSubmit}
@@ -89,10 +89,11 @@ const UpdateReview = () => {
                   Game Cover Image (URL)
                 </label>
                 <input
-                  type="url"
+                  type="text"
                   name="coverURL"
                   className="w-full px-4 py-2 border rounded-md focus:outline-none"
                   defaultValue={loadedData.coverURL}
+                  required
                   placeholder="Enter image URL"
                 />
               </div>
