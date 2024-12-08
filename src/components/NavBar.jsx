@@ -114,7 +114,6 @@ const NavBar = () => {
   return (
     <div>
       <nav className="flex z-30 text-white lg:container mx-3 md:mx-6 lg:mx-auto items-center justify-between py-4">
-        {/* Logo Section */}
         <div className="lg:hidden">
           <button
             className="transition-transform duration-300 ease-in-out"
@@ -127,10 +126,11 @@ const NavBar = () => {
             )}
           </button>
         </div>
+        {/* logo section */}
         <Link to={"/"}>
           <div className="flex items-center gap-2">
-            <LuGamepad2 className="md:text-4xl" />
-            <h3 className="font-bold">CHILL GAMER</h3>
+            <LuGamepad2 className="text-2xl sm:text-2xl md:text-5xl lg:text-6xl" />
+            <h3 className="font-bold   md:text-3xl lg:text-4xl">CHILL GAMER</h3>
           </div>
         </Link>
 
