@@ -124,7 +124,7 @@ const AllReviews = () => {
           </div>
         ) : (
           <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            <Fade>
+            <Fade damping={0.2}>
               {reviews.map((review) => (
                 <ReviewCard review={review} key={review._id}></ReviewCard>
               ))}

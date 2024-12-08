@@ -59,54 +59,56 @@ const Register = () => {
     <div>
       <div style={{ backgroundImage: `url(${loginImage})` }} className="">
         <div className="bg-black bg-opacity-55 ">
-          <div className="container mx-auto py-24">
+          <div className="lg:container py-20 lg:mx-auto mx-4 md:mx-6">
             {" "}
             <h3 className="text-white font-bold text-4xl">Registration</h3>
           </div>
         </div>
       </div>
-      <div className="container my-20 mx-auto">
+      <div className="lg:container my-20 lg:mx-auto mx-4 md:m-6">
         {" "}
         <div className=" flex flex-col text-black">
-          <p className="mb-6 font-medium text-2xl">Welcome Back</p>
+          <p className="mb-6 dark:text-white font-medium text-2xl">
+            Welcome Back
+          </p>
           <form onSubmit={handelSubmit}>
             <div className="mb-4 flex flex-col">
-              <span className="font-medium text-xl">Name</span>
+              <span className="font-medium text-xl dark:text-white">Name</span>
               <input
                 type="text"
                 name="name"
                 required
-                placeholder="Enter Email"
                 className=" md:w-[55%] lg:w-[35%] p-3 border border-black  text-b focus:outline-none  placeholder-white"
               />
             </div>
             <div className="mb-4 flex flex-col">
-              <span className="font-medium text-xl">PhotoURL</span>
+              <span className="font-medium text-xl dark:text-white">
+                PhotoURL
+              </span>
               <input
                 type="text"
                 name="photo"
                 required
-                placeholder="Enter Email"
-                className=" md:w-[55%] lg:w-[35%] p-3 border border-black  text-b focus:outline-none  placeholder-white"
+                className="  md:w-[55%] lg:w-[35%] p-3 border border-black  text-b focus:outline-none  placeholder-white"
               />
             </div>
             <div className="mb-4 flex flex-col">
-              <span className="font-medium text-xl">Email</span>
+              <span className="font-medium text-xl dark:text-white">Email</span>
               <input
                 type="email"
                 name="email"
                 required
-                placeholder="Enter Email"
-                className=" md:w-[55%] lg:w-[35%] p-3 border border-black  text-b focus:outline-none  placeholder-white"
+                className="  md:w-[55%] lg:w-[35%] p-3 border border-black  text-b focus:outline-none  placeholder-white"
               />
             </div>
             <div className="mb-4 flex flex-col">
-              <span className="font-medium text-xl">Password</span>
+              <span className="font-medium text-xl dark:text-white">
+                Password
+              </span>
               <input
                 type="password"
                 required
                 name="password"
-                placeholder="Enter Password"
                 className="md:w-[55%]  lg:w-[35%] p-3 border border-black  text-black focus:outline-none focus:ring-red-500 placeholder-white"
               />
             </div>
@@ -119,7 +121,7 @@ const Register = () => {
             </button>
           </form>
           <div className="mt-4">
-            <p>
+            <p className="dark:text-white">
               Already have an account?{" "}
               <Link className="text-red-600" to={"/login"}>
                 Login now !

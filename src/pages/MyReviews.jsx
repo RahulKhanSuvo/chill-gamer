@@ -49,7 +49,7 @@ const MyReviews = () => {
   };
 
   return (
-    <div className="container min-h-[calc(100vh-100px)] mx-auto px-4 py-8">
+    <div className="lg:container min-h-[calc(100vh-100px)] mx-4 md:mx-6 lg:mx-auto  py-8">
       <h1 className="text-3xl dark:text-white font-bold text-center mb-6 text-gray-800">
         My Reviews
       </h1>

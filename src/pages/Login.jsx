@@ -54,13 +54,13 @@ const Login = () => {
     <div>
       <div style={{ backgroundImage: `url(${loginImage})` }} className="">
         <div className="bg-black bg-opacity-55 ">
-          <div className="container mx-auto py-24">
+          <div className="lg:container lg:mx-auto mx-4 md:mx-6 py-24">
             {" "}
             <h3 className="text-white font-bold text-4xl">Login</h3>
           </div>
         </div>
       </div>
-      <div className="container  dark:bg-[#181A1B] my-20 mx-auto">
+      <div className="lg:container  dark:bg-[#181A1B] my-20 mx-4 md:mx-6 lg:mx-auto">
         {" "}
         <div className=" flex flex-col text-black">
           <p className="mb-6 dark:text-white font-medium text-2xl">
@@ -107,7 +107,7 @@ const Login = () => {
             </p>
           </div>
 
-          <div className="flex items-center gap-1">
+          <div className="flex flex-col md:flex-row items-center gap-1">
             {/* Google Sign-In Button */}
             <div className="mt-4">
               <button

@@ -61,7 +61,7 @@ const AddReview = () => {
       <div style={{ backgroundImage: `url(${loginImage})` }} className="">
         <div className="bg-black bg-opacity-55 ">
           <div className="container mx-auto py-4">
-            <h3 className="text-white text-center font-bold text-4xl">
+            <h3 className="text-white text-center font-bold text-2xl md:text-4xl">
               Add Review
             </h3>
           </div>
@@ -69,7 +69,7 @@ const AddReview = () => {
       </div>
       <div className="container mx-auto py-8 relative z-20">
         <form
-          className="max-w-3xl mx-auto p-6 bg-white dark:bg-black shadow-md rounded-md"
+          className="md:max-w-3xl mx-4 md:mx-auto p-6 bg-white dark:bg-black shadow-md rounded-md"
           onSubmit={handleSubmit}
         >
           {/* Game Cover URL */}

@@ -204,7 +204,7 @@ const NavBar = () => {
           isOpen ? "translate-y-[72px]" : "hidden"
         } lg:hidden`}
       >
-        <div className="flex flex-col gap-2 container mx-auto p-4">
+        <div className="flex flex-col gap-2 lg:container md:mx-4  lg:mx-auto p-4">
           {smLinks}
         </div>
       </div>
