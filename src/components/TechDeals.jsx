@@ -1,3 +1,5 @@
+import { Fade } from "react-awesome-reveal";
+
 const TechDeals = () => {
   const articles = [
     {
@@ -64,65 +66,76 @@ const TechDeals = () => {
     },
   ];
   return (
-    <div className="container mx-auto  ">
-      <div className="p-4">
+    <div className="lg:container py-10 mx-auto">
+      <div className=" mx-4 md:mx-6 lg:mx-0">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Latest News */}
           <div className="lg:col-span-3">
-            <h2 className="font-medium bg-[#F80136] text-white mb-4 text-xl py-4 px-4">
-              Latest News
-            </h2>
+            <Fade duration={1000}>
+              <h2 className="font-medium bg-[#F80136] text-white mb-4 text-xl py-4 px-4">
+                Latest News
+              </h2>
+            </Fade>
             <div className="space-y-6">
               {articles.map((article, index) => (
-                <div
-                  key={index}
-                  className="flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-4 bg-white dark:bg-black p-4 rounded-lg shadow-md"
-                >
-                  <img
-                    src={article.image}
-                    alt={article.title}
-                    className="w-full md:w-48 h-28 object-cover rounded-md"
-                  />
-                  <div>
-                    <span className="text-sm text-green-500">
-                      {article.category}
-                    </span>
-                    <h3 className="text-lg font-semibold">{article.title}</h3>
-                    <p className="text-gray-600 text-sm hidden sm:block">
-                      {article.description}
-                    </p>
-                    <div className="text-gray-400 text-xs mt-2 flex justify-between">
-                      <span>{article.date}</span>
-                      <span>{article.views} views</span>
+                <Fade key={index} cascade direction="up" duration={600}>
+                  <div className="group flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-4 bg-white dark:bg-black p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <div className="overflow-hidden">
+                      <img
+                        src={article.image}
+                        alt={article.title}
+                        className="w-full md:h-28 object-cover rounded-md group-hover:scale-110 transition-transform duration-300"
+                      />
+                    </div>
+                    <div>
+                      <span className="text-sm text-green-500">
+                        {article.category}
+                      </span>
+                      <h3 className="text-lg font-semibold cursor-pointer group-hover:text-[#F80136] transition-colors duration-300">
+                        {article.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm hidden sm:block">
+                        {article.description}
+                      </p>
+                      <div className="text-gray-400 text-xs mt-2 flex justify-between">
+                        <span>{article.date}</span>
+                        <span>{article.views} views</span>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </Fade>
               ))}
             </div>
           </div>
           {/* Best Guides */}
           <div>
-            <h2 className="font-medium bg-[#F80136] text-white text-xl py-4 px-4">
-              Best Guides
-            </h2>
-            <div className="bg-white dark:bg-black rounded-lg shadow-md p-4 space-y-4">
-              {guides.map((guide, index) => (
-                <div key={index} className="flex items-center space-x-4">
-                  <img
-                    src={guide.image}
-                    alt={guide.title}
-                    className="w-16 h-16 object-cover rounded-md"
-                  />
-                  <div>
-                    <h3 className="text-sm font-semibold">{guide.title}</h3>
-                    <div className="text-gray-400 text-xs">
-                      <span>{guide.date}</span> •{" "}
-                      <span>{guide.views} views</span>
+            <Fade direction="right">
+              <h2 className="font-medium bg-[#F80136] text-white text-xl py-4 px-4">
+                Best Guides
+              </h2>
+            </Fade>
+            <Fade cascade direction="up" damping={0.1}>
+              <div className="bg-white dark:bg-black rounded-lg shadow-md p-4 space-y-4">
+                {guides.map((guide, index) => (
+                  <div key={index} className="flex items-center space-x-4">
+                    <img
+                      src={guide.image}
+                      alt={guide.title}
+                      className="w-16 h-16 object-cover rounded-md"
+                    />
+                    <div>
+                      <h3 className="text-sm font-semibold cursor-pointer hover:text-[#F80136]">
+                        {guide.title}
+                      </h3>
+                      <div className="text-gray-400 text-xs">
+                        <span>{guide.date}</span> •{" "}
+                        <span>{guide.views} views</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            </Fade>
           </div>
         </div>
       </div>

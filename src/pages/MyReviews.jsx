@@ -69,7 +69,7 @@ const MyReviews = () => {
             <div className="overflow-x-auto">
               <table className="table-auto w-full border-collapse border border-gray-300 rounded-lg shadow-sm">
                 {/* Table Head */}
-                <thead className="bg-[#F80136] text-white">
+                <thead className="bg-[#E6002B] text-white">
                   <tr>
                     <th className="px-4 py-2 text-left">#</th>
                     <th className="px-4 py-2 text-left">Game Name</th>

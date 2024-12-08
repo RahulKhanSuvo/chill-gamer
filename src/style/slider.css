@@ -1,4 +1,3 @@
-/* Custom navigation buttons */
 .custom-prev,
 .custom-next {
   position: absolute;
@@ -11,7 +10,6 @@
   align-items: center;
   justify-content: center;
   background-color: #444648;
-  /* Change to your preferred color */
   border-radius: 50%;
   cursor: pointer;
   color: white;
@@ -20,6 +18,7 @@
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
+/* Left and right positions for large screens */
 .custom-prev {
   left: 40px;
 }
@@ -31,16 +30,72 @@
 .custom-prev:hover,
 .custom-next:hover {
   background-color: #f80136;
-  /* Hover effect */
 }
 
-/* Zoom animation for Swiper images */
 .swiper-slide img {
   transition: transform 5s ease-in-out;
-  /* Smooth zoom effect over 5 seconds */
 }
 
 .swiper-slide-active img {
   transform: scale(1.1);
-  /* Zoom the active image */
+}
+
+/* Responsive styles */
+@media screen and (max-width: 1024px) {
+  .custom-prev,
+  .custom-next {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .custom-prev {
+    left: 20px;
+  }
+
+  .custom-next {
+    right: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .custom-prev,
+  .custom-next {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+  }
+
+  .custom-prev {
+    left: 15px;
+  }
+
+  .custom-next {
+    right: 15px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .custom-prev,
+  .custom-next {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+
+  .custom-prev {
+    left: 10px;
+  }
+
+  .custom-next {
+    right: 10px;
+  }
+
+  .swiper-slide img {
+    transition: transform 3s ease-in-out;
+  }
+
+  .swiper-slide-active img {
+    transform: scale(1.05);
+  }
 }

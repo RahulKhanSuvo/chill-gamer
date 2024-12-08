@@ -22,7 +22,9 @@ const ReviewCard = ({ review }) => {
           />
         </div>
         <div className="px-4 py-2">
-          <h3 className="text-sm text-gray-600">{genre}</h3>
+          <div className="clipped-div pr-2 pl-1 py-1 bg-[#00c110]  mt-2">
+            <p className="text-white">{genre}</p>
+          </div>
           <div className="flex items-center justify-between my-2">
             <div className="flex gap-2 items-center text-sm text-gray-500">
               <FaCalendarAlt className="text-[#F80136]" />
@@ -47,7 +49,7 @@ const ReviewCard = ({ review }) => {
       <div className="px-4 py-4">
         <Link
           to={`/review/${_id}`}
-          className="hover:text-white hover:bg-[#FA4904] font-semibold text-sm w-fit border-2 border-[#F80136] px-4 py-2 rounded-md"
+          className=" px-4 py-2 border-2 border-[#F80136] text-black hover:text-white dark:text-white hover:bg-[#F80136] transition-colors duration-300"
         >
           EXPLORE DETAILS
         </Link>

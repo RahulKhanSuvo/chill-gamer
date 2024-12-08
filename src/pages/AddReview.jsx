@@ -2,7 +2,6 @@ import { useContext, useState } from "react";
 import AuthContext from "../Context/AuthContext";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import ReactStars from "react-rating-stars-component";
 import loginImage from "../assets/2.jpg";
 import toast from "react-hot-toast";
 
@@ -49,9 +48,10 @@ const AddReview = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          toast.success("Review add successfully");
+          toast.success("Review added successfully");
           form.reset();
           setYear(null);
+          setRating(0);
         }
       });
   };
@@ -78,7 +78,7 @@ const AddReview = () => {
               Game Cover Image (URL)
             </label>
             <input
-              type="url"
+              type="text"
               name="coverURL"
               className="w-full px-4 py-2 border rounded-md focus:outline-none"
               placeholder="Enter image URL"
@@ -111,19 +111,26 @@ const AddReview = () => {
             ></textarea>
           </div>
 
+          {/* Rating (1-10) Buttons */}
           <div className="mb-4">
             <label className="block font-semibold mb-2">Rating (1-10)</label>
-            <ReactStars
-              count={10}
-              onChange={(newRating) => setRating(newRating)}
-              size={24}
-              activeColor="#F80136"
-              value={rating}
-              half={true}
-            />
+            <div className="flex justify-between">
+              {[...Array(10)].map((_, index) => (
+                <button
+                  key={index + 1}
+                  type="button"
+                  onClick={() => setRating(index + 1)}
+                  className={`w-8 h-8 bg- rounded-full text-center flex items-center justify-center ${
+                    rating === index + 1 ? "bg-[#F80136] text-white" : ""
+                  }`}
+                >
+                  {index + 1}
+                </button>
+              ))}
+            </div>
           </div>
 
-          {/* Publishing Year*/}
+          {/* Publishing Year */}
           <div className="mb-4">
             <label className="block font-semibold mb-2">Publishing Year</label>
             <DatePicker

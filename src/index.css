@@ -1,11 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.active {
-  color: black;
-}
+
 .clipped-div {
   width: fit-content;
-  background: #00c110;
   clip-path: polygon(100% 0%, 96% 56%, 100% 100%, 0 100%, 0 57%, 0 0);
 }

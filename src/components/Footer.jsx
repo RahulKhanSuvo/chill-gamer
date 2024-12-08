@@ -11,7 +11,7 @@ import { LuGamepad2 } from "react-icons/lu";
 const Footer = () => {
   return (
     <div className="bg-[#0F1012] ">
-      <div className="lg:container pt-20 mx-4 pb-10 flex flex-wrap justify-between gap-4 lg:mx-auto">
+      <div className="lg:container pt-20 mx-4 pb-10 flex flex-wrap lg:flex-nowrap justify-between gap-4 lg:mx-auto">
         {/* Logo and Social Section */}
         <div className="w-full md:w-1/4 mb-6 md:mb-0">
           <div className="flex text-white items-center gap-2">

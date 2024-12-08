@@ -71,7 +71,7 @@ const Slider = () => {
               {/* Overlay */}
               <div className="absolute inset-0 bg-black opacity-50"></div>
               {/* Content */}
-              <div className="absolute container mx-auto inset-0 flex flex-col justify-center items-start text-white px-4">
+              <div className="absolute lg:container mx-4 md:mx-6 lg:mx-auto inset-0 flex flex-col justify-center items-start text-white ">
                 <h3 className="flex items-center gap-2 text-sm sm:text-base">
                   <FaRegCalendarAlt className="text-[#F80136]" />
                   {slide.date}

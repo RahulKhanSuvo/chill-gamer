@@ -14,7 +14,7 @@ const Home = () => {
           <BestGames loadedGames={loadedGames}></BestGames>
         </div>
       </div>
-      <div className="bg-white dark:bg-[#181A1B]">
+      <div className="bg-[#F2F2F2] dark:bg-[#181A1B]">
         <TechDeals></TechDeals>
       </div>
       <div className="bg-[#F6F6F6] dark:bg-[#1D2021]">

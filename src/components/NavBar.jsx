@@ -5,37 +5,105 @@ import { Tooltip } from "react-tooltip";
 import AuthContext from "../Context/AuthContext";
 import { MdAccountCircle, MdClose } from "react-icons/md";
 import { HiMenuAlt1 } from "react-icons/hi";
+import { FaUserAlt } from "react-icons/fa";
 
 const NavBar = () => {
   const { users, userLogout } = useContext(AuthContext);
+  console.log(users);
   const [isOpen, setOpen] = useState(false);
+
   useEffect(() => {
     const handelScroll = () => {
       if (isOpen) setOpen(false);
     };
     window.addEventListener("scroll", handelScroll);
   }, [isOpen]);
+
   const links = (
     <>
-      <NavLink to={"/"}>HOME</NavLink>
-      <NavLink to={"/all-reviews"}>ALL REVIEWS</NavLink>
+      <NavLink
+        to="/"
+        className={({ isActive }) => (isActive ? "text-black" : "")}
+      >
+        HOME
+      </NavLink>
+      <NavLink
+        to="/all-reviews"
+        className={({ isActive }) => (isActive ? "text-black" : "")}
+      >
+        ALL REVIEWS
+      </NavLink>
       <NavLink
         to="/add-review"
-        className="hover:text-black"
+        className={({ isActive }) =>
+          isActive ? "text-black" : "hover:text-black"
+        }
         aria-label="Go to Add Review"
       >
         ADD REVIEW
       </NavLink>
       <NavLink
         to="/my-review"
-        className="hover:text-black"
+        className={({ isActive }) =>
+          isActive ? "text-black" : "hover:text-black"
+        }
         aria-label="Go to My Reviews"
       >
         MY REVIEWS
       </NavLink>
       <NavLink
         to="/watchlist"
-        className="hover:text-black"
+        className={({ isActive }) =>
+          isActive ? "text-black" : "hover:text-black"
+        }
+        aria-label="Go to Game Watchlist"
+      >
+        GAME WATCHLIST
+      </NavLink>
+    </>
+  );
+
+  const smLinks = (
+    <>
+      <NavLink
+        to="/"
+        className={({ isActive }) =>
+          isActive ? "text-[#F80136]" : "text-black "
+        }
+      >
+        HOME
+      </NavLink>
+      <NavLink
+        to="/all-reviews"
+        className={({ isActive }) =>
+          isActive ? "text-[#F80136]" : "text-black"
+        }
+      >
+        ALL REVIEWS
+      </NavLink>
+      <NavLink
+        to="/add-review"
+        className={({ isActive }) =>
+          isActive ? "text-[#F80136]" : "text-black hover:text-black"
+        }
+        aria-label="Go to Add Review"
+      >
+        ADD REVIEW
+      </NavLink>
+      <NavLink
+        to="/my-review"
+        className={({ isActive }) =>
+          isActive ? "text-[#F80136]" : "text-black hover:text-black"
+        }
+        aria-label="Go to My Reviews"
+      >
+        MY REVIEWS
+      </NavLink>
+      <NavLink
+        to="/watchlist"
+        className={({ isActive }) =>
+          isActive ? "text-[#F80136]" : "text-black hover:text-black"
+        }
         aria-label="Go to Game Watchlist"
       >
         GAME WATCHLIST
@@ -45,7 +113,7 @@ const NavBar = () => {
 
   return (
     <div>
-      <nav className="flex z-30 text-white container mx-auto items-center justify-between py-4">
+      <nav className="flex z-30 text-white lg:container mx-4 md:mx-6 lg:mx-auto items-center justify-between py-4">
         {/* Logo Section */}
         <div className="lg:hidden">
           <button
@@ -62,7 +130,7 @@ const NavBar = () => {
         <Link to={"/"}>
           <div className="flex items-center gap-2">
             <LuGamepad2 className="md:text-4xl" />
-            <h3 className=" font-bold">CHILL GAMER</h3>
+            <h3 className="font-bold">CHILL GAMER</h3>
           </div>
         </Link>
 
@@ -73,17 +141,30 @@ const NavBar = () => {
         <div>
           {users ? (
             <div className="flex items-center gap-2 md:gap-4">
-              {/* Avatar with Tooltip/Dropdown */}
-              <div data-tip="This is a tooltip!" className="">
-                <img
-                  data-tooltip-id="my-tooltip"
-                  data-tooltip-content={users.displayName}
-                  data-tooltip-place="top"
-                  src={users.photoURL}
-                  alt="User Avatar"
-                  className="w-10 h-10 rounded-full cursor-pointer"
-                />
-                <Tooltip id="my-tooltip" />
+              <div data-tip="This is a tooltip!">
+                {users?.photoURL ? (
+                  <>
+                    <img
+                      data-tooltip-id="my-tooltip"
+                      data-tooltip-content={users.displayName}
+                      data-tooltip-place="top"
+                      src={users.photoURL}
+                      alt="User Avatar"
+                      className="w-10 h-10 rounded-full cursor-pointer"
+                    />
+                    <Tooltip id="my-tooltip" />
+                  </>
+                ) : (
+                  <div>
+                    <FaUserAlt
+                      data-tooltip-id="my-tooltip"
+                      data-tooltip-content={users.displayName}
+                      data-tooltip-place="top"
+                      className="w-10 h-10 text-white cursor-pointer"
+                    />
+                    <Tooltip id="my-tooltip" />
+                  </div>
+                )}
               </div>
               <button
                 onClick={userLogout}
@@ -95,25 +176,37 @@ const NavBar = () => {
           ) : (
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-1">
-                <MdAccountCircle className="text-lg" />
-                <Link to={"/login"}>
-                  <button className=" text-white ">Login</button>
-                </Link>
+                <MdAccountCircle size={30} className="text-lg" />
+                <NavLink
+                  to="/login"
+                  className={({ isActive }) =>
+                    isActive ? "text-black" : "text-white"
+                  }
+                >
+                  Login
+                </NavLink>
               </div>
-              <Link to={"/register"}>
-                <button className=" text-white ">Register</button>
-              </Link>
+              <NavLink
+                to="/register"
+                className={({ isActive }) =>
+                  isActive ? "text-black" : "text-white"
+                }
+              >
+                Register
+              </NavLink>
             </div>
           )}
         </div>
       </nav>
 
       <div
-        className={`fixed top-0 left-0 w-full bg-white shadow-lg transform transition-transform  ${
+        className={`fixed top-0 left-0 w-full bg-white shadow-lg transform transition-transform ${
           isOpen ? "translate-y-[72px]" : "hidden"
         } lg:hidden`}
       >
-        <div className="flex flex-col gap-2 container mx-auto p-4">{links}</div>
+        <div className="flex flex-col gap-2 container mx-auto p-4">
+          {smLinks}
+        </div>
       </div>
     </div>
   );

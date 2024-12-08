@@ -1,10 +1,10 @@
 import { useLoaderData } from "react-router-dom";
-import ReactStars from "react-rating-stars-component";
+import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useState } from "react";
 import toast from "react-hot-toast";
 import loginImage from "../assets/2.jpg";
+
 const UpdateReview = () => {
   const loadedData = useLoaderData();
   const [rating, setRating] = useState(Number(loadedData.rating) || 0);
@@ -125,22 +125,28 @@ const UpdateReview = () => {
                 ></textarea>
               </div>
 
-              {/* Rating - ReactStars component with Half Stars enabled */}
+              {/* Rating (1-10) Buttons */}
               <div className="mb-4">
                 <label className="block font-semibold mb-2">
                   Rating (1-10)
                 </label>
-                <ReactStars
-                  count={10}
-                  onChange={setRating}
-                  size={24}
-                  activeColor="#F80136"
-                  value={rating}
-                  half={true}
-                />
+                <div className="flex justify-between">
+                  {[...Array(10)].map((_, index) => (
+                    <button
+                      key={index + 1}
+                      type="button"
+                      onClick={() => setRating(index + 1)}
+                      className={`w-8 h-8 rounded-full text-center flex items-center justify-center ${
+                        rating === index + 1 ? "bg-[#F80136] text-white" : ""
+                      }`}
+                    >
+                      {index + 1}
+                    </button>
+                  ))}
+                </div>
               </div>
 
-              {/* Publishing Year - React DatePicker for Year */}
+              {/* Publishing Year */}
               <div className="mb-4">
                 <label className="block font-semibold mb-2">
                   Publishing Year
@@ -210,8 +216,6 @@ const UpdateReview = () => {
           </div>
         </div>
       </div>
-
-      {/* Form Container */}
     </div>
   );
 };

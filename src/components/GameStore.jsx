@@ -1,3 +1,5 @@
+import { Fade } from "react-awesome-reveal";
+
 const GameStore = () => {
   const products = [
     {
@@ -23,29 +25,33 @@ const GameStore = () => {
   ];
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <h2 className="font-medium bg-[#F80136] text-white mb-4 text-xl py-4 px-4">
-        Game Store
-      </h2>
+    <div className="lg:container mx-4 md:mx-6 lg:mx-auto py-8">
+      <Fade>
+        <h2 className="font-medium bg-[#F80136] text-white mb-4 text-xl py-4 px-4">
+          Game Store
+        </h2>
+      </Fade>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {products.map((product, index) => (
-          <div
-            key={index}
-            className={` r ${product.outOfStock ? "opacity-60" : ""}`}
-          >
-            <div className="bg-white rounded-lg ">
-              <img
-                src={product.image}
-                alt={product.name}
-                className="w-full h-40 object-contain mb-4"
-              />
+        <Fade cascade damping={0.2}>
+          {products.map((product, index) => (
+            <div
+              key={index}
+              className={` r ${product.outOfStock ? "opacity-60" : ""}`}
+            >
+              <div className="bg-white rounded-lg overflow-hidden shadow-md transition-transform transform hover:scale-105 duration-300">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-40 object-contain mb-4"
+                />
+              </div>
+              <h3 className="text-lg font-medium text-gray-800 dark:text-white">
+                {product.name}
+              </h3>
+              <p className="text-gray-600">{product.price}</p>
             </div>
-            <h3 className="text-lg font-medium text-gray-800 dark:text-white">
-              {product.name}
-            </h3>
-            <p className="text-gray-600">{product.price}</p>
-          </div>
-        ))}
+          ))}
+        </Fade>
       </div>
     </div>
   );

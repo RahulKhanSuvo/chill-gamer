@@ -70,10 +70,9 @@ const ReviewDetails = () => {
             <h3 className="text-4xl font-bold text-gray-800 dark:text-white mt-4">
               {title}
             </h3>
-            <p className="mt-2">
-              <span className="font-semibold text-gray-700">Genre:</span>{" "}
-              {genre}
-            </p>
+            <div className="clipped-div pr-2 pl-1 py-1 bg-[#00c110]  mt-2">
+              <p className="text-white">{genre}</p>
+            </div>
 
             {/* Rating with react-rating-stars-component */}
             <div className="mt-2">
