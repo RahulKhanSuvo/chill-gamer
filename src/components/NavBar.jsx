@@ -33,33 +33,37 @@ const NavBar = () => {
       >
         ALL REVIEWS
       </NavLink>
-      <NavLink
-        to="/add-review"
-        className={({ isActive }) =>
-          isActive ? "text-black" : "hover:text-black"
-        }
-        aria-label="Go to Add Review"
-      >
-        ADD REVIEW
-      </NavLink>
-      <NavLink
-        to="/my-review"
-        className={({ isActive }) =>
-          isActive ? "text-black" : "hover:text-black"
-        }
-        aria-label="Go to My Reviews"
-      >
-        MY REVIEWS
-      </NavLink>
-      <NavLink
-        to="/watchlist"
-        className={({ isActive }) =>
-          isActive ? "text-black" : "hover:text-black"
-        }
-        aria-label="Go to Game Watchlist"
-      >
-        GAME WATCHLIST
-      </NavLink>
+      {users && (
+        <>
+          <NavLink
+            to="/add-review"
+            className={({ isActive }) =>
+              isActive ? "text-black" : "hover:text-black"
+            }
+            aria-label="Go to Add Review"
+          >
+            ADD REVIEW
+          </NavLink>
+          <NavLink
+            to="/my-review"
+            className={({ isActive }) =>
+              isActive ? "text-black" : "hover:text-black"
+            }
+            aria-label="Go to My Reviews"
+          >
+            MY REVIEWS
+          </NavLink>
+          <NavLink
+            to="/watchlist"
+            className={({ isActive }) =>
+              isActive ? "text-black" : "hover:text-black"
+            }
+            aria-label="Go to Game Watchlist"
+          >
+            GAME WATCHLIST
+          </NavLink>
+        </>
+      )}
     </>
   );
 
@@ -81,33 +85,37 @@ const NavBar = () => {
       >
         ALL REVIEWS
       </NavLink>
-      <NavLink
-        to="/add-review"
-        className={({ isActive }) =>
-          isActive ? "text-[#F80136]" : "text-black hover:text-black"
-        }
-        aria-label="Go to Add Review"
-      >
-        ADD REVIEW
-      </NavLink>
-      <NavLink
-        to="/my-review"
-        className={({ isActive }) =>
-          isActive ? "text-[#F80136]" : "text-black hover:text-black"
-        }
-        aria-label="Go to My Reviews"
-      >
-        MY REVIEWS
-      </NavLink>
-      <NavLink
-        to="/watchlist"
-        className={({ isActive }) =>
-          isActive ? "text-[#F80136]" : "text-black hover:text-black"
-        }
-        aria-label="Go to Game Watchlist"
-      >
-        GAME WATCHLIST
-      </NavLink>
+      {users && (
+        <>
+          <NavLink
+            to="/add-review"
+            className={({ isActive }) =>
+              isActive ? "text-black" : "hover:text-black"
+            }
+            aria-label="Go to Add Review"
+          >
+            ADD REVIEW
+          </NavLink>
+          <NavLink
+            to="/my-review"
+            className={({ isActive }) =>
+              isActive ? "text-black" : "hover:text-black"
+            }
+            aria-label="Go to My Reviews"
+          >
+            MY REVIEWS
+          </NavLink>
+          <NavLink
+            to="/watchlist"
+            className={({ isActive }) =>
+              isActive ? "text-black" : "hover:text-black"
+            }
+            aria-label="Go to Game Watchlist"
+          >
+            GAME WATCHLIST
+          </NavLink>
+        </>
+      )}
     </>
   );
 
