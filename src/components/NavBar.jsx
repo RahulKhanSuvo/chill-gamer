@@ -141,10 +141,8 @@ const NavBar = () => {
           </div>
         </Link>
 
-        {/* Desktop Navigation Links */}
         <div className="space-x-4 hidden lg:block">{links}</div>
 
-        {/* Auth Section */}
         <div>
           {users ? (
             <div className="flex items-center gap-2 md:gap-4">

@@ -75,7 +75,7 @@ const Register = () => {
                 type="text"
                 name="name"
                 required
-                className=" md:w-[55%] lg:w-[35%] p-3 border border-black  text-b focus:outline-none  placeholder-white"
+                className=" md:w-[55%] lg:w-[35%] p-3 border border-black dark:border-white dark:text-white focus:outline-none  placeholder-white"
               />
             </div>
             <div className="mb-4 flex flex-col">
@@ -86,7 +86,7 @@ const Register = () => {
                 type="text"
                 name="photo"
                 required
-                className="  md:w-[55%] lg:w-[35%] p-3 border border-black  text-b focus:outline-none  placeholder-white"
+                className="  md:w-[55%] lg:w-[35%] p-3 border dark:text-white border-black dark:border-white  focus:outline-none  placeholder-white"
               />
             </div>
             <div className="mb-4 flex flex-col">
@@ -95,7 +95,7 @@ const Register = () => {
                 type="email"
                 name="email"
                 required
-                className="  md:w-[55%] lg:w-[35%] p-3 border border-black  text-b focus:outline-none  placeholder-white"
+                className="  md:w-[55%] lg:w-[35%] p-3 dark:text-white border border-black  dark:border-white text-b focus:outline-none  placeholder-white"
               />
             </div>
             <div className="mb-4 flex flex-col">
@@ -106,7 +106,7 @@ const Register = () => {
                 type="password"
                 required
                 name="password"
-                className="md:w-[55%]  lg:w-[35%] p-3 border border-black  text-black focus:outline-none focus:ring-red-500 placeholder-white"
+                className="md:w-[55%]  lg:w-[35%] p-3 dark:text-white border border-black  text-black dark:border-white focus:outline-none focus:ring-red-500 placeholder-white"
               />
             </div>
 
