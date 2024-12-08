@@ -12,11 +12,11 @@ const ReviewCard = ({ review }) => {
     review;
 
   return (
-    <div className="flex flex-col bg-white dark:bg-black shadow-md pb-2 ">
+    <div className="flex flex-col group bg-white dark:bg-black shadow-md pb-2  h-full ">
       <div className="flex-grow">
         <div className="overflow-hidden">
           <img
-            className="h-[350px] w-full object-cover   transition-transform duration-300 hover:scale-110 ease-in-out rounded-t-md"
+            className=" md:h-[350px] w-full object-cover   transition-transform duration-300 group-hover:scale-110 ease-in-out "
             src={coverURL}
             alt={`Cover of ${title}`}
           />

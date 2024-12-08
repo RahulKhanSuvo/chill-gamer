@@ -113,7 +113,7 @@ const NavBar = () => {
 
   return (
     <div>
-      <nav className="flex z-30 text-white lg:container mx-4 md:mx-6 lg:mx-auto items-center justify-between py-4">
+      <nav className="flex z-30 text-white lg:container mx-3 md:mx-6 lg:mx-auto items-center justify-between py-4">
         {/* Logo Section */}
         <div className="lg:hidden">
           <button

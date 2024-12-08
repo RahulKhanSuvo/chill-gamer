@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ReviewCard from "../components/ReviewCard";
+import { Fade } from "react-awesome-reveal";
 
 const AllReviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -62,21 +63,24 @@ const AllReviews = () => {
 
   return (
     <div className="bg-[#FBFBFB] dark:bg-[#181A1B] pb-16">
-      <div className="container mx-auto">
-        <div className="flex flex-col justify-between items-center py-6">
+      <div className="lg:container mx-4 md:mx-6 lg:mx-auto">
+        <div className="py-6">
           <h2 className="text-2xl mt-2 mb-4 font-bold text-center">
             All Reviews
           </h2>
 
-          <div className="flex flex-wrap justify-between items-center space-x-4">
-            {/* Filter Dropdown */}
-            <div className="">
-              <label htmlFor="filter" className="font-semibold mr-2">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 p-4">
+            {/* Filter By Genre */}
+            <div className="flex flex-col md:flex-row items-center gap-2 w-full md:w-auto">
+              <label
+                htmlFor="filter"
+                className="font-semibold whitespace-nowrap"
+              >
                 Filter By Genre:
               </label>
               <select
                 id="filter"
-                className="px-4 select-text w-full md:w-fit py-2 mb-1 border rounded-md focus:outline-none"
+                className="px-4 py-2 w-full sm:w-auto border rounded-md focus:outline-none  transition"
                 onChange={handleFilterChange}
                 value={filters.genre}
               >
@@ -89,14 +93,14 @@ const AllReviews = () => {
               </select>
             </div>
 
-            {/* Sort Dropdown */}
-            <div>
-              <label htmlFor="sort" className="font-semibold mr-2">
+            {/* Sort By */}
+            <div className="flex flex-col md:flex-row items-center gap-2 w-full md:w-auto">
+              <label htmlFor="sort" className="font-semibold whitespace-nowrap">
                 Sort By:
               </label>
               <select
                 id="sort"
-                className="px-4 py-2 w-full md:w-fit border rounded-md focus:outline-none"
+                className="px-4 py-2 w-full sm:w-auto border rounded-md focus:outline-none transition"
                 onChange={handleSortChange}
                 value={filters.sortBy}
               >
@@ -120,9 +124,11 @@ const AllReviews = () => {
           </div>
         ) : (
           <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {reviews.map((review) => (
-              <ReviewCard review={review} key={review._id}></ReviewCard>
-            ))}
+            <Fade>
+              {reviews.map((review) => (
+                <ReviewCard review={review} key={review._id}></ReviewCard>
+              ))}
+            </Fade>
           </div>
         )}
       </div>

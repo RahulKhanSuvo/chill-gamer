@@ -13,8 +13,7 @@ const MainLayout = () => {
         <ThemeToggle />
       </div>
       <main
-        className={`flex-grow md:mx-0 ${
-          location.pathname === "/" ? "mx-0" : "mx-4"
+        className={`flex-grow
         }`}
       >
         <Outlet />
