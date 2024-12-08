@@ -9,7 +9,7 @@ import { FaUserAlt } from "react-icons/fa";
 
 const NavBar = () => {
   const { users, userLogout } = useContext(AuthContext);
-  console.log(users);
+
   const [isOpen, setOpen] = useState(false);
 
   useEffect(() => {

@@ -32,7 +32,7 @@ const AllReviews = () => {
         const genres = [...new Set(data.map((review) => review.genre))];
         setUniqueGenres(genres);
       } catch (error) {
-        console.error("Error fetching reviews:", error);
+        // console.error("Error fetching reviews:", error);
       } finally {
         setLoading(false);
       }
@@ -52,7 +52,7 @@ const AllReviews = () => {
         const data = await response.json();
         setReviews(data);
       } catch (error) {
-        console.error("Error fetching filtered reviews:", error);
+        // console.error("Error fetching filtered reviews:", error);
       } finally {
         setLoading(false);
       }

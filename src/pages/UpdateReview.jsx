@@ -59,7 +59,9 @@ const UpdateReview = () => {
           toast.success("Updated Successfully");
         }
       })
-      .catch((err) => console.error("Error:", err));
+      .catch(() => {
+        toast.error("failed pls try again");
+      });
   };
 
   return (
