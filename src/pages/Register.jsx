@@ -4,7 +4,8 @@ import AuthContext from "../Context/AuthContext";
 import loginImage from "../assets/2.jpg";
 import toast from "react-hot-toast";
 const Register = () => {
-  const { createUser, updateUser, setLoading } = useContext(AuthContext);
+  const { createUser, updateUser, setLoading, setUsers } =
+    useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   const handelSubmit = (e) => {
@@ -34,9 +35,11 @@ const Register = () => {
       return;
     }
     createUser(email, password)
-      .then(() => {
+      .then((result) => {
+        const createUser = result.user;
         updateUser({ displayName: name, photoURL: photo })
           .then(() => {
+            setUsers({ ...createUser, displayName: name, photoURL: photo });
             setLoading(false);
             toast.success("Registration successful!");
             navigate(location.state ? location.state : "/");

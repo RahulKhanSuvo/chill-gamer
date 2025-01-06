@@ -8,7 +8,6 @@ import { HiMenuAlt1 } from "react-icons/hi";
 
 const NavBar = () => {
   const { users, userLogout } = useContext(AuthContext);
-  console.log(users);
 
   const [isOpen, setOpen] = useState(false);
 
@@ -72,7 +71,7 @@ const NavBar = () => {
       <NavLink
         to="/"
         className={({ isActive }) =>
-          isActive ? "text-[#F80136]" : "text-black "
+          isActive ? "text-[#F80136]" : "hover:text-[#F80136] text-black "
         }
       >
         HOME
@@ -80,7 +79,7 @@ const NavBar = () => {
       <NavLink
         to="/all-reviews"
         className={({ isActive }) =>
-          isActive ? "text-[#F80136]" : "text-black"
+          isActive ? "text-[#F80136]" : "hover:text-[#F80136] text-black"
         }
       >
         ALL REVIEWS
@@ -90,7 +89,7 @@ const NavBar = () => {
           <NavLink
             to="/add-review"
             className={({ isActive }) =>
-              isActive ? "text-black" : "hover:text-black"
+              isActive ? "text-[#F80136]" : "hover:text-[#F80136]"
             }
             aria-label="Go to Add Review"
           >
@@ -99,7 +98,7 @@ const NavBar = () => {
           <NavLink
             to="/my-review"
             className={({ isActive }) =>
-              isActive ? "text-black" : "hover:text-black"
+              isActive ? "text-[#F80136]" : "hover:text-[#F80136]"
             }
             aria-label="Go to My Reviews"
           >
@@ -108,7 +107,7 @@ const NavBar = () => {
           <NavLink
             to="/watchlist"
             className={({ isActive }) =>
-              isActive ? "text-black" : "hover:text-black"
+              isActive ? "text-[#F80136]" : "hover:text-[#F80136]"
             }
             aria-label="Go to Game Watchlist"
           >

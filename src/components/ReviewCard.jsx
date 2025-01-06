@@ -12,11 +12,11 @@ const ReviewCard = ({ review }) => {
     review;
 
   return (
-    <div className="flex flex-col group bg-white dark:bg-black shadow-md pb-2  h-full ">
+    <div className="flex border flex-col group bg-white dark:bg-black hover:shadow-xl pb-2  h-full ">
       <div className="flex-grow">
         <div className="overflow-hidden">
           <img
-            className=" md:h-[350px] w-full object-cover   transition-transform duration-300 group-hover:scale-110 ease-in-out "
+            className=" md:h-[250px] w-full object-cover   transition-transform duration-300 group-hover:scale-110 ease-in-out "
             src={coverURL}
             alt={`Cover of ${title}`}
           />
@@ -36,7 +36,7 @@ const ReviewCard = ({ review }) => {
             </div>
           </div>
           <h2 className="text-xl font-semibold">{title}</h2>
-          <p className="text-gray-600 mt-2">{truncateText(description, 25)}</p>
+          <p className="text-gray-600 mt-2">{truncateText(description, 10)}</p>
 
           {/* Rating Section */}
           <div className="mt-2 flex items-center gap-1">
@@ -46,12 +46,12 @@ const ReviewCard = ({ review }) => {
           </div>
         </div>
       </div>
-      <div className="px-4 py-4">
+      <div className="px-4 text-center py-4">
         <Link
           to={`/review/${_id}`}
           className=" px-4 py-2 border-2 border-[#F80136] text-black hover:text-white dark:text-white hover:bg-[#F80136] transition-colors duration-300"
         >
-          EXPLORE DETAILS
+          DETAILS
         </Link>
       </div>
     </div>

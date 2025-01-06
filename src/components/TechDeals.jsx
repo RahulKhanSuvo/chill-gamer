@@ -1,4 +1,5 @@
 import { Fade } from "react-awesome-reveal";
+import SuTitle from "./SuTitle";
 
 const TechDeals = () => {
   const articles = [
@@ -72,11 +73,7 @@ const TechDeals = () => {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Latest News */}
           <div className="lg:col-span-3">
-            <Fade duration={1000}>
-              <h2 className="font-medium bg-[#F80136] text-white mb-4 text-xl py-4 px-4">
-                Latest News
-              </h2>
-            </Fade>
+            <SuTitle title={" Latest News"}></SuTitle>
             <div className="space-y-6">
               {articles.map((article, index) => (
                 <Fade key={index} cascade direction="up" duration={600}>

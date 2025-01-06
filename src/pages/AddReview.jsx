@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import loginImage from "../assets/2.jpg";
 import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 
 const AddReview = () => {
   const { users } = useContext(AuthContext);
@@ -48,7 +49,16 @@ const AddReview = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          toast.success("Review added successfully");
+          Swal.fire({
+            icon: "success",
+            title: "Review added successfully",
+            toast: true,
+            position: "center",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+          });
+
           form.reset();
           setYear(null);
           setRating(0);
@@ -80,7 +90,8 @@ const AddReview = () => {
             <input
               type="text"
               name="coverURL"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none"
+              required
+              className="w-full px-4 py-2 border  rounded-md focus:outline-[#F80136]"
               placeholder="Enter image URL"
             />
           </div>
@@ -91,7 +102,7 @@ const AddReview = () => {
             <input
               type="text"
               name="title"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none"
+              className="w-full px-4 py-2 border rounded-md focus:outline-[#F80136]"
               placeholder="Enter game title"
               required
             />
@@ -104,7 +115,7 @@ const AddReview = () => {
             </label>
             <textarea
               name="description"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none"
+              className="w-full px-4 py-2 border rounded-md focus:outline-[#F80136]"
               rows="5"
               placeholder="Write your review here"
               required
@@ -138,7 +149,7 @@ const AddReview = () => {
               onChange={setYear}
               showYearPicker
               dateFormat="yyyy"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none"
+              className="w-full px-4 py-2 border rounded-md focus:outline-[#F80136]"
               placeholderText="Select a year"
             />
           </div>
@@ -148,7 +159,7 @@ const AddReview = () => {
             <label className="block font-semibold mb-2">Genre</label>
             <select
               name="genre"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none"
+              className="w-full px-4 py-2 border rounded-md focus:outline-[#F80136]"
               required
             >
               <option value="">Select a genre</option>
@@ -167,7 +178,7 @@ const AddReview = () => {
               type="email"
               value={users?.email || ""}
               readOnly
-              className="w-full px-4 py-2 border rounded-md bg-gray-100"
+              className="w-full px-4 py-2 border focus:outline-[#F80136] rounded-md bg-gray-100"
             />
           </div>
 
@@ -178,7 +189,7 @@ const AddReview = () => {
               type="text"
               value={users?.displayName || ""}
               readOnly
-              className="w-full px-4 py-2 border rounded-md bg-gray-100"
+              className="w-full px-4 py-2 border focus:outline-[#F80136]  rounded-md bg-gray-100"
             />
           </div>
 

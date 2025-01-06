@@ -2,14 +2,14 @@ import { useLoaderData } from "react-router-dom";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import toast from "react-hot-toast";
 import loginImage from "../assets/2.jpg";
+import Swal from "sweetalert2";
 
 const UpdateReview = () => {
   const loadedData = useLoaderData();
   const [rating, setRating] = useState(Number(loadedData.rating) || 0);
   const [year, setYear] = useState(
-    new Date(loadedData.year || new Date().getFullYear())
+    loadedData.year ? new Date(`${loadedData.year}-01-01`) : new Date()
   );
   const genres = [
     "Action",
@@ -55,12 +55,31 @@ const UpdateReview = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        if (data.modifiedCount) {
-          toast.success("Updated Successfully");
+        if (data.modifiedCount > 0) {
+          Swal.fire({
+            title: "Success!",
+            text: "Updated Successfully.",
+            icon: "success",
+            confirmButtonText: "OK",
+            toast: true,
+            timer: 3000,
+            timerProgressBar: true,
+            showCloseButton: true,
+          });
+        } else {
+          Swal.fire({
+            icon: "warning",
+            title: "Please add new info to update",
+            toast: true,
+            position: "center",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+          });
         }
       })
       .catch(() => {
-        toast.error("failed pls try again");
+        Swal.fire("failed pls try again");
       });
   };
 
@@ -93,7 +112,7 @@ const UpdateReview = () => {
                 <input
                   type="text"
                   name="coverURL"
-                  className="w-full px-4 py-2 border rounded-md focus:outline-none"
+                  className="w-full px-4 py-2 border rounded-md  focus:outline-[#F80136]"
                   defaultValue={loadedData.coverURL}
                   required
                   placeholder="Enter image URL"
@@ -106,7 +125,7 @@ const UpdateReview = () => {
                 <input
                   type="text"
                   name="title"
-                  className="w-full px-4 py-2 border rounded-md focus:outline-none"
+                  className="w-full px-4 py-2 border rounded-md focus:outline-[#F80136]"
                   defaultValue={loadedData.title}
                   placeholder="Enter game title"
                   required
@@ -120,7 +139,7 @@ const UpdateReview = () => {
                 </label>
                 <textarea
                   name="description"
-                  className="w-full px-4 py-2 border rounded-md focus:outline-none"
+                  className="w-full px-4 py-2 border rounded-md focus:outline-[#F80136]"
                   rows="5"
                   defaultValue={loadedData.description}
                   placeholder="Write your review here"
@@ -159,7 +178,7 @@ const UpdateReview = () => {
                   onChange={setYear}
                   showYearPicker
                   dateFormat="yyyy"
-                  className="w-full px-4 py-2 border rounded-md focus:outline-none"
+                  className="w-full px-4 py-2 border rounded-md focus:outline-[#F80136]"
                   placeholderText="Select a year"
                 />
               </div>
@@ -169,7 +188,7 @@ const UpdateReview = () => {
                 <label className="block font-semibold mb-2">Genre</label>
                 <select
                   name="genre"
-                  className="w-full px-4 py-2 border rounded-md focus:outline-none"
+                  className="w-full px-4 py-2 border rounded-md focus:outline-[#F80136]"
                   required
                   defaultValue={loadedData.genre}
                 >

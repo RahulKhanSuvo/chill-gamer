@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
-import backgroundImage from "../assets/aroplane-fight.jpg";
 import { Fade } from "react-awesome-reveal";
-
+import SuTitle from "./SuTitle";
 const BestGames = ({ loadedGames }) => {
   const truncateText = (text = "", limit) =>
     text.split(" ").length > limit
@@ -10,38 +9,30 @@ const BestGames = ({ loadedGames }) => {
 
   return (
     <div className="w-full -translate-y-12 z-30 p-4 lg:p-6 bg-white dark:bg-black lg:container lg:mx-auto">
-      <Fade>
-        <h2 className="font-medium bg-[#F80136] text-white text-xl py-4 px-4">
-          Highest Rated Games
-        </h2>
-      </Fade>
-
-      <div
-        style={{ backgroundImage: `url(${backgroundImage})` }}
-        className="bg-cover bg-center"
-      >
-        <div className="bg-[#474747] bg-opacity-80 p-2  lg:p-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <SuTitle title={" Best Games on"}></SuTitle>
+      <div>
+        <div className="mt-3">
+          <div className="grid grid-cols-1 md:grid-cols-3  lg:grid-cols-4 gap-4">
             {loadedGames.length === 0 ? (
               <p className="text-gray-500 dark:text-gray-300">
                 No games available at the moment.
               </p>
             ) : (
-              <Fade cascade damping={0.2}>
+              <Fade>
                 {loadedGames.map((game) => (
                   <div
                     key={game._id}
-                    className="p-4 group bg-white dark:bg-[#0C0D0D] flex flex-col shadow-lg"
+                    className="p-4 min-h-[500px] group bg-white dark:bg-[#d1d1d1] flex flex-col shadow-lg"
                   >
                     <div className="flex-grow dark:text-white">
                       <div className="overflow-hidden">
                         <img
                           src={game.coverURL}
                           alt={`Cover of ${game.title}`}
-                          className="md:h-[350px] w-full object-cover transition-transform duration-300 group-hover:scale-110 ease-in-out rounded-sm"
+                          className="md:h-[250px] w-full object-cover transition-transform duration-300 group-hover:scale-110 ease-in-out rounded-sm"
                         />
                       </div>
-                      <div className="clipped-div pr-2 pl-1 py-1 mt-2">
+                      <div className="clipped-div pr-2 pl-1 ">
                         <p className="text-white">{game.genre}</p>
                       </div>
                       <h2 className="text-lg font-bold mt-2">{game.title}</h2>
@@ -60,7 +51,7 @@ const BestGames = ({ loadedGames }) => {
                         to={`/review/${game._id}`}
                         className="mt-3 w-fit px-4 py-2 border-2 border-[#F80136] text-black hover:text-white dark:text-white hover:bg-[#F80136] transition-colors duration-300"
                       >
-                        EXPLORE DETAILS
+                        DETAILS
                       </Link>
                     </div>
                   </div>

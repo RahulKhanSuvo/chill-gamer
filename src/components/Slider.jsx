@@ -11,12 +11,12 @@ import "../style/slider.css"; // For custom styles
 import { CgProfile } from "react-icons/cg";
 import { MdAccessTime } from "react-icons/md";
 import { Typewriter } from "react-simple-typewriter";
-import { Fade, Zoom } from "react-awesome-reveal";
+import { Fade } from "react-awesome-reveal";
 
 const Slider = () => {
   const slides = [
     {
-      image: "https://i.ibb.co.com/rbYvcjB/3-1020x600.jpg",
+      image: "https://i.ibb.co.com/Th04wbf/9.jpg",
       date: "May 31, 2021",
       title: "Top 10 Gaming Reviews: Must-Play Titles of the Year",
       description:
@@ -26,7 +26,7 @@ const Slider = () => {
       readTime: "2 minutes read",
     },
     {
-      image: "https://i.ibb.co.com/XLDNxjM/4-1020x600.jpg",
+      image: "https://i.ibb.co.com/cD7GbDq/image.png",
       date: "June 15, 2021",
       title: "Best New Indie Games: Discover Hidden Gems",
       description:

@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import { useContext } from "react";
 import AuthContext from "../Context/AuthContext";
 import { MdPermIdentity } from "react-icons/md";
+import Swal from "sweetalert2";
 
 const ReviewDetails = () => {
   const details = useLoaderData();
@@ -45,7 +46,16 @@ const ReviewDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          toast.success("added to watchList successful");
+          Swal.fire({
+            title: "Success!",
+            text: "Successfully added to your watchlist.",
+            icon: "success",
+            confirmButtonText: "OK",
+            toast: true,
+            timer: 3000,
+            timerProgressBar: true,
+            showCloseButton: true,
+          });
         }
       });
   };
