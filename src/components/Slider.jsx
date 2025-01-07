@@ -7,7 +7,7 @@ import {
   FaRegComments,
 } from "react-icons/fa";
 import "swiper/swiper-bundle.css";
-import "../style/slider.css"; // For custom styles
+import "../style/slider.css";
 import { CgProfile } from "react-icons/cg";
 import { MdAccessTime } from "react-icons/md";
 import { Typewriter } from "react-simple-typewriter";
