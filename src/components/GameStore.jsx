@@ -10,7 +10,7 @@ const GameStore = () => {
       .then((data) => setProducts(data));
   }, []);
   return (
-    <div className="lg:container mx-4 md:mx-6 lg:mx-auto py-8">
+    <div className="lg:container px-4 md:px-6 bg-white lg:mx-auto pt-8 pb-6">
       <Fade>
         <h2 className="font-medium bg-[#F80136] text-white mb-4 text-xl py-4 px-4">
           Game Store
@@ -19,8 +19,11 @@ const GameStore = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <Fade cascade damping={0.2}>
           {products.map((product, index) => (
-            <div key={index} className="group cursor-pointer">
-              <div className="bg-white rounded-lg overflow-hidden shadow-md ">
+            <div
+              key={index}
+              className="group cursor-pointer border p-4 rounded-md hover:shadow-md"
+            >
+              <div className="bg-white rounded-lg overflow-hidden  ">
                 <img
                   src={product.image}
                   alt={product.name}

@@ -77,7 +77,7 @@ const Slider = () => {
                   {slide.date}
                 </h3>
                 <Fade cascade>
-                  <h1 className="text-xl sm:text-3xl md:text-4xl font-semibold max-w-2xl hover:text-[#F80136] transition-colors duration-200 cursor-pointer">
+                  <h1 className="text-xl sm:text-3xl md:text-4xl font-semibold max-w-2xl hover:text-[#F80136] transition-colors duration-200 ">
                     <Typewriter
                       words={[slide.title]}
                       loop={true}

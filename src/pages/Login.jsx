@@ -1,14 +1,16 @@
 import { useContext } from "react";
 import AuthContext from "../Context/AuthContext";
-import loginImage from "../assets/2.jpg";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import loginAnimation from "../assets/login.json";
+import Lottie from "lottie-react";
 
 const Login = () => {
   const { userLogin, userGoogleSignIn, userGitHubSignIn } =
     useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
+
   const handelSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -24,7 +26,7 @@ const Login = () => {
         navigate(location.state ? location.state : "/");
       })
       .catch(() => {
-        toast.error("login failed please provide valid email & password");
+        toast.error("Login failed. Please provide a valid email & password.");
       });
   };
 
@@ -35,7 +37,7 @@ const Login = () => {
         navigate(location.state ? location.state : "/");
       })
       .catch(() => {
-        toast.error("failed please try again");
+        toast.error("Google login failed. Please try again.");
       });
   };
 
@@ -46,23 +48,20 @@ const Login = () => {
         navigate(location.state ? location.state : "/");
       })
       .catch(() => {
-        toast.error("failed please try again");
+        toast.error("GitHub login failed. Please try again.");
       });
   };
 
   return (
     <div>
-      <div style={{ backgroundImage: `url(${loginImage})` }} className="">
-        <div className="bg-black bg-opacity-55 ">
-          <div className="lg:container lg:mx-auto mx-4 md:mx-6 py-24">
-            {" "}
-            <h3 className="text-white font-bold text-4xl">Login</h3>
-          </div>
+      <div className="lg:container dark:bg-[#181A1B] my-10 lg:my-0 mx-4 md:mx-6 lg:mx-auto flex flex-col lg:flex-row items-center gap-8">
+        {/* Lottie Animation */}
+        <div className="w-full md:w-2/3 lg:w-1/2">
+          <Lottie animationData={loginAnimation} loop={true} />
         </div>
-      </div>
-      <div className="lg:container  dark:bg-[#181A1B] my-20 mx-4 md:mx-6 lg:mx-auto">
-        {" "}
-        <div className=" flex flex-col text-black">
+
+        {/* Login Form */}
+        <div className="w-full lg:w-1/2 flex flex-col text-black">
           <p className="mb-6 dark:text-white font-medium text-2xl">
             Welcome Back
           </p>
@@ -72,7 +71,7 @@ const Login = () => {
               <input
                 type="email"
                 name="email"
-                className=" md:w-[55%] lg:w-[35%] p-3 dark:border-white border border-black   focus:outline-none dark:text-white "
+                className="md:w-[90%] lg:w-[80%] p-3 dark:border-white border border-black focus:outline-none dark:text-white"
               />
             </div>
             <div className="mb-4 flex flex-col">
@@ -82,8 +81,7 @@ const Login = () => {
               <input
                 type="password"
                 name="password"
-                className="md:w-[55%] 
-                dark:text-white dark:border-white lg:w-[35%] p-3 border border-black  text-black   focus:outline-none focus:ring-red-500 placeholder-white"
+                className="md:w-[90%] lg:w-[80%] p-3 dark:border-white border border-black focus:outline-none dark:text-white"
               />
             </div>
             <div className="mb-6">
@@ -93,7 +91,7 @@ const Login = () => {
             </div>
             <button
               type="submit"
-              className=" bg-[#F80136] hover:bg-red-700 text-white p-3 px-4 "
+              className="bg-[#F80136] hover:bg-red-700 text-white p-3 px-4"
             >
               LOG IN
             </button>
@@ -102,31 +100,26 @@ const Login = () => {
             <p>
               <span className="dark:text-white">Don't have an account?</span>{" "}
               <Link className="text-red-600" to={"/register"}>
-                Register now !
-              </Link>{" "}
+                Register now!
+              </Link>
             </p>
           </div>
 
-          <div className="flex flex-col md:flex-row items-center gap-1">
-            {/* Google Sign-In Button */}
-            <div className="mt-4">
-              <button
-                onClick={handleGoogleSignIn}
-                className="bg-blue-500 hover:bg-blue-600 text-white p-3 rounded"
-              >
-                Sign In with Google
-              </button>
-            </div>
+          {/* Social Login Buttons */}
+          <div className="flex flex-col md:flex-row items-center gap-4 mt-6">
+            <button
+              onClick={handleGoogleSignIn}
+              className="bg-blue-500 hover:bg-blue-600 text-white p-3 rounded"
+            >
+              Sign In with Google
+            </button>
             <h3 className="dark:text-white">or</h3>
-            {/* GitHub Sign-In Button */}
-            <div className="mt-4">
-              <button
-                onClick={handleGitHubSignIn}
-                className=" bg-gray-800 hover:bg-gray-900 text-white p-3 rounded"
-              >
-                Sign In with GitHub
-              </button>
-            </div>
+            <button
+              onClick={handleGitHubSignIn}
+              className="bg-gray-800 hover:bg-gray-900 text-white p-3 rounded"
+            >
+              Sign In with GitHub
+            </button>
           </div>
         </div>
       </div>

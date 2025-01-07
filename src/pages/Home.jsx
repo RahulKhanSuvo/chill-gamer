@@ -22,7 +22,7 @@ const Home = () => {
       <div className="bg-[#F2F2F2] dark:bg-[#181A1B]">
         <TechDeals data={loadedGames}></TechDeals>
       </div>
-      <div className="bg-[#F6F6F6] dark:bg-[#1D2021]">
+      <div className="bg-[#F6F6F6] py-10 dark:bg-[#1D2021]">
         <GameStore></GameStore>
       </div>
       <section className="bg-[#F6F6F6] pb-16 dark:bg-[#1D2021]">

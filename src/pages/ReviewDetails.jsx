@@ -1,5 +1,5 @@
 import { FaRegCalendarAlt } from "react-icons/fa";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 import CommentSection from "../components/Comment";
 import toast from "react-hot-toast";
@@ -11,7 +11,7 @@ import Swal from "sweetalert2";
 const ReviewDetails = () => {
   const details = useLoaderData();
   const { users } = useContext(AuthContext);
-
+  const navigate = useNavigate();
   const {
     _id,
     coverURL,
@@ -36,6 +36,9 @@ const ReviewDetails = () => {
   };
 
   const handelWatchList = () => {
+    if (!users) {
+      return navigate("/login");
+    }
     fetch("https://chill-gamer-server-dusky.vercel.app/watchList", {
       method: "POST",
       headers: {
@@ -75,14 +78,12 @@ const ReviewDetails = () => {
               <h3 className="md:text-4xl text-2xl font-bold text-gray-800 dark:text-white ">
                 {title}
               </h3>
-              {users && (
-                <button
-                  onClick={handelWatchList}
-                  className="mt-4 w-fit px-2 md:px-4 md:py-2  border-2 border-[#F80136] text-black dark:text-white hover:text-white  hover:bg-[#F80136]"
-                >
-                  Add to WatchList
-                </button>
-              )}
+              <button
+                onClick={handelWatchList}
+                className="mt-4 w-fit px-2 md:px-4 md:py-2  border-2 border-[#F80136] text-black dark:text-white hover:text-white  hover:bg-[#F80136]"
+              >
+                Add to WatchList
+              </button>
             </div>
             <div className="clipped-div pr-2 pl-1 py-1 bg-[#00c110]  mt-2">
               <p className="text-white">{genre}</p>
