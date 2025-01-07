@@ -1,6 +1,7 @@
 import mail from "../assets/Animation - 1736230280757.json";
 import Lottie from "lottie-react";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const Newsletter = () => {
   const [email, setEmail] = useState("");
@@ -10,12 +11,10 @@ const Newsletter = () => {
   };
 
   const handleSubmit = () => {
-    // Handle the submit logic (you can add form validation here)
     if (email) {
-      alert(`Thank you for subscribing with email: ${email}`);
-      // You can replace the above alert with actual subscription logic.
+      toast.success(`Thank you for subscribing with email: ${email}`);
     } else {
-      alert("Please enter a valid email!");
+      toast.error("Please enter a valid email!");
     }
   };
 
