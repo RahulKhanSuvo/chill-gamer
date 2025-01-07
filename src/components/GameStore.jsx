@@ -1,29 +1,14 @@
+import { useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
+import { Link } from "react-router-dom";
 
 const GameStore = () => {
-  const products = [
-    {
-      name: "Razer Naga Expert MMO",
-      price: "$65.00 – $75.00",
-      image: "https://i.ibb.co.com/Ssdy6TC/image.png",
-    },
-    {
-      name: "XBOX Original Gamepad",
-      price: "$150.00 – $170.00",
-      image: "https://i.ibb.co.com/v3fqn2X/image.png",
-    },
-    {
-      name: "Thrustmaster Ferrari 458",
-      price: "$180.00 – $210.00",
-      image: "https://i.ibb.co.com/mXSVM5F/image.png",
-    },
-    {
-      name: "PS3 Original Gamepad",
-      price: "$340.00 – $350.00",
-      image: "https://i.ibb.co.com/6YxpHpS/image.png",
-    },
-  ];
-
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    fetch("https://chill-gamer-server-dusky.vercel.app/product")
+      .then((res) => res.json())
+      .then((data) => setProducts(data));
+  }, []);
   return (
     <div className="lg:container mx-4 md:mx-6 lg:mx-auto py-8">
       <Fade>
@@ -42,9 +27,11 @@ const GameStore = () => {
                   className="w-full transition-transform transform group-hover:scale-105 duration-300 h-40 object-contain mb-4"
                 />
               </div>
-              <h3 className="text-lg font-medium group-hover:text-[#F80136] text-gray-800 dark:text-white">
-                {product.name}
-              </h3>
+              <Link to={`/product/${product._id}`}>
+                <h3 className="text-lg font-medium group-hover:text-[#F80136] text-gray-800 dark:text-white">
+                  {product.name}
+                </h3>
+              </Link>
               <p className="text-gray-600">{product.price}</p>
             </div>
           ))}

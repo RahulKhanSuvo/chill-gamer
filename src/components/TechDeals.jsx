@@ -1,7 +1,8 @@
 import { Fade } from "react-awesome-reveal";
 import SuTitle from "./SuTitle";
+import { Link } from "react-router-dom";
 
-const TechDeals = () => {
+const TechDeals = ({ data }) => {
   const articles = [
     {
       title: "Tom Clancy's the Division Server Problems Are Fixed",
@@ -40,7 +41,7 @@ const TechDeals = () => {
       views: 8,
     },
   ];
-
+  console.log(data);
   const guides = [
     {
       title: "Tom Clancy's The Division Review",
@@ -67,37 +68,43 @@ const TechDeals = () => {
       image: "https://i.ibb.co.com/pfjT7Mf/image.png",
     },
   ];
+  const truncateText = (text, limit) =>
+    text.split(" ").length > limit
+      ? text.split(" ").slice(0, limit).join(" ") + "..."
+      : text;
   return (
-    <div className="lg:container py-10 mx-auto">
-      <div className=" mx-4 md:mx-6 lg:mx-0">
+    <div className="lg:container  py-10 mx-auto">
+      <div className=" bg-white p-4 md:px-6 py-6 lg:mx-0">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Latest News */}
           <div className="lg:col-span-3">
             <SuTitle title={" Latest News"}></SuTitle>
-            <div className="space-y-6">
-              {articles.map((article, index) => (
+            <div className="space-y-6 mt-4">
+              {data.slice(0, 4).map((article, index) => (
                 <Fade key={index} cascade direction="up" duration={600}>
                   <div className="group flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-4 bg-white dark:bg-black p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
                     <div className="overflow-hidden">
                       <img
-                        src={article.image}
+                        src={article.coverURL}
                         alt={article.title}
                         className="w-full md:h-28 object-cover rounded-md group-hover:scale-110 transition-transform duration-300"
                       />
                     </div>
                     <div>
                       <span className="text-sm text-green-500">
-                        {article.category}
+                        {article.genre}
                       </span>
-                      <h3 className="text-lg font-semibold cursor-pointer group-hover:text-[#F80136] transition-colors duration-300">
-                        {article.title}
-                      </h3>
+                      <Link to={`/review/${article._id}`}>
+                        <h3 className="text-lg font-semibold cursor-pointer group-hover:text-[#F80136] transition-colors duration-300">
+                          {article.title}
+                        </h3>
+                      </Link>
                       <p className="text-gray-600 text-sm hidden sm:block">
-                        {article.description}
+                        {truncateText(article.description, 10)}
                       </p>
                       <div className="text-gray-400 text-xs mt-2 flex justify-between">
-                        <span>{article.date}</span>
-                        <span>{article.views} views</span>
+                        <span>{40}</span>
+                        <span>{40 + 15} views</span>
                       </div>
                     </div>
                   </div>

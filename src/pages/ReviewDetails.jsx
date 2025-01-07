@@ -62,30 +62,23 @@ const ReviewDetails = () => {
 
   return (
     <div className="bg-white  dark:bg-[#181A1B]">
-      <div className="lg:container mx-4 md:mx-6 lg:mx-auto py-8">
-        <div>
-          <img
-            src={coverURL}
-            alt={title}
-            className="w-full md:h-[500px] rounded-lg object-cover shadow-lg"
-          />
+      <div className="lg:container mx-4 md:mx-6 lg:mx-auto py-8 ">
+        <div className="flex flex-col lg:flex-row  gap-5">
+          <div className="flex-1">
+            <img src={coverURL} alt={title} className="rounded" />
+          </div>
 
           {/* Game Details */}
-          <div className="mt-6">
-            <div className="flex gap-2 items-center">
-              <FaRegCalendarAlt className="text-[#F80136]" size={18} />
-              <span className="font-semibold text-[#7E869B]">Year:</span>
-              <p className="text-[#7E869B]">{year}</p>
-            </div>
+          <div className="flex-1">
             <div className="flex flex-col md:flex-row justify-between">
               {" "}
-              <h3 className="md:text-4xl text-2xl font-bold text-gray-800 dark:text-white mt-4">
+              <h3 className="md:text-4xl text-2xl font-bold text-gray-800 dark:text-white ">
                 {title}
               </h3>
               {users && (
                 <button
                   onClick={handelWatchList}
-                  className="mt-4 w-fit px-4 py-2 border-2 border-[#F80136] text-black dark:text-white hover:text-white  hover:bg-[#F80136]"
+                  className="mt-4 w-fit px-2 md:px-4 md:py-2  border-2 border-[#F80136] text-black dark:text-white hover:text-white  hover:bg-[#F80136]"
                 >
                   Add to WatchList
                 </button>
@@ -95,7 +88,7 @@ const ReviewDetails = () => {
               <p className="text-white">{genre}</p>
             </div>
 
-            <div className="mt-2">
+            <div className="mt-2 flex items-center gap-2">
               <span className="font-semibold text-gray-700">Rating:</span>
               <ReactStars
                 count={10}
@@ -106,7 +99,11 @@ const ReviewDetails = () => {
               />
               <span className="ml-2 text-gray-600">{rating}/10</span>
             </div>
-
+            <div className="flex gap-2 items-center">
+              <FaRegCalendarAlt className="text-[#F80136]" size={18} />
+              <span className="font-semibold text-[#7E869B]">Year:</span>
+              <p className="text-[#7E869B]">{year}</p>
+            </div>
             <p className="mt-4"> {description}</p>
 
             <div className="mt-5 p-4 bg-gray-100 dark:bg-[#1E1F23] ">
@@ -132,9 +129,9 @@ const ReviewDetails = () => {
         </div>
 
         {/* Comment Section */}
-        <div className="mt-8">
-          <CommentSection />
-        </div>
+      </div>
+      <div className="mt-8 mb-4 mx-4">
+        <CommentSection />
       </div>
     </div>
   );

@@ -11,6 +11,7 @@ import UpdateReview from "../pages/UpdateReview";
 import WatchList from "../pages/WatchList";
 import PrivateRouter from "../private/PrivateRouter";
 import NotFound from "../pages/NotFound";
+import Product from "../pages/Product";
 
 const router = createBrowserRouter([
   {
@@ -75,6 +76,14 @@ const router = createBrowserRouter([
             <WatchList></WatchList>
           </PrivateRouter>
         ),
+      },
+      {
+        path: "/product/:id",
+        element: <Product></Product>,
+        loader: ({ params }) =>
+          fetch(
+            `https://chill-gamer-server-dusky.vercel.app/product/${params.id}`
+          ),
       },
     ],
   },
