@@ -3,7 +3,7 @@
 **Chill Gamer** is a user-friendly game review application where users can explore and share game reviews. The platform allows users to add reviews, manage their reviews, and create a personalized watchlist of games. Designed with simplicity and functionality in mind, the site offers a seamless user experience for gamers who want to share their thoughts on the latest games.
 
 ## Live Site URL
-[Chill Gamer - Live Site](https://chill-gamer-e0d34.web.app/)
+[Chill Gamer - Live Site]([https://chill-gamer-e0d34.web.app/](https://chill-gamer-rahul-khan-suvo.netlify.app/))
 
 ## Features
 1. **User Authentication**: Secure login and registration using email/password and Google or GitHub authentication.
