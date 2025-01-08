@@ -36,9 +36,9 @@ const MostExiting = ({ loadedGames }) => {
       >
         {loadedGames.map((slide, index) => (
           <SwiperSlide key={index}>
-            <div className="relative">
+            <div className="relative overflow-hidden group">
               <div
-                className="relative w-full md:h-[250px] h-[150px] bg-cover bg-center"
+                className="relative  transition-transform duration-300 w-full md:h-[250px] h-[150px] group-hover:scale-110 bg-cover bg-center"
                 style={{
                   backgroundImage: `
                     linear-gradient(to bottom, rgba(255, 240, 0, 0) 0%, rgba(0, 0, 0, 0.2) 20%, rgba(0, 0, 0, 0.9) 100%),
