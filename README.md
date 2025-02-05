@@ -1,80 +1,106 @@
-# Chill Gamer: A Game Review Application
+# Chill Gamer 🎮
 
-**Chill Gamer** is a user-friendly game review application where users can explore and share game reviews. The platform allows users to add reviews, manage their reviews, and create a personalized watchlist.
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Open-green?style=for-the-badge)](https://chill-gamer-rahul-khan-suvo.netlify.app/)
 
-## Live Site URL
-[Chill Gamer - Live Site](https://chill-gamer-rahul-khan-suvo.netlify.app/)
+<div align="center">
+  <img height="100%" src="https://i.ibb.co.com/kggpnBS5/screely-1738735936074.png"  />
+</div>
 
----
+## Project Overview
+A community-driven game review platform where gamers can share reviews, manage content, and track upcoming games. Features secure authentication, personalized watchlists, and dynamic content filtering.
 
-<details>
-  <summary>🚀 Features</summary>
+### 🚀 Technologies Used
+- **Frontend**: React, Tailwind CSS, DaisyUI  
+- **Backend**: Node.js, Express  
+- **Database**: MongoDB  
+- **Authentication**: Firebase, JWT  
+- **Hosting**: Firebase (Client), Netlify (Server)  
 
-1. **User Authentication**: Secure login and registration with Firebase.
-2. **Add and Manage Reviews**: Users can submit detailed reviews.
-3. **Review Details**: View full game review details.
-4. **My Reviews**: Edit or delete submitted reviews.
-5. **Game Watchlist**: Save games to a personalized watchlist.
-6. **Responsive Design**: Optimized for all devices.
-7. **Dark/Light Mode Toggle**: Switch between themes.
-8. **Sort & Filter Reviews**: Sort by rating or year, filter by genre.
+### 🔑 Core Features
+- 🔐 **Secure Auth**: Google/GitHub login + email/password  
+- 📝 **Review System**: Create/Edit/Delete reviews with ratings  
+- 🎯 **Smart Filtering**: Sort by rating/year, filter by genre  
+- 🌓 **Theme Toggle**: Dark/light mode switcher  
+- 📌 **Watchlist**: Save games for later  
+- 📱 **Responsive**: Mobile-first design  
+- 🔄 **Real-time Updates**: Instant content changes  
 
-</details>
+### 📦 Key Dependencies
+#### **Client**
+- `react-router-dom`
+- `axios`
+- `firebase`
+- `daisyui`
+- `lottie-react`
 
----
+#### **Server**
+- `express`
+- `mongoose`
+- `cors`
+- `dotenv`
+- `jsonwebtoken`
 
-<details>
-  <summary>🛠 Technologies Used</summary>
+### 🛠 Local Setup Guide
 
-### **Frontend**  
-- React.js  
-- Tailwind CSS  
-- Lottie (Animations)  
-- React Router  
+#### **Prerequisites**
+- Node.js ≥16.x
+- MongoDB Atlas account
+- Firebase project
 
-### **Backend**  
-- Node.js  
-- Express.js  
+#### **1️⃣ Clone Repository**
+```bash
+git clone https://github.com/RahulKhanSuvo/chill-gamer.git
+cd chill-gamer
+## 2️⃣ Install Dependencies
 
-### **Database**  
-- MongoDB  
+### Client
+```bash
+cd client
+npm install
+```
 
-### **Authentication**  
-- Firebase Authentication  
+### Server
+```bash
+cd ../server
+npm install
+```
 
-### **Deployment**  
-- Netlify (Frontend)  
-- Vercel (Backend)  
+## 3️⃣ Configure Environment Variables
 
-</details>
+Create `.env` files inside both the client and server directories.
 
----
+### Client `.env`
+```ini
+REACT_APP_API_URL=http://localhost:5000
+REACT_APP_FIREBASE_API_KEY=your-firebase-api-key
+REACT_APP_FIREBASE_AUTH_DOMAIN=your-firebase-auth-domain
+REACT_APP_FIREBASE_PROJECT_ID=your-firebase-project-id
+REACT_APP_FIREBASE_STORAGE_BUCKET=your-firebase-storage-bucket
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your-firebase-messaging-sender-id
+REACT_APP_FIREBASE_APP_ID=your-firebase-app-id
+```
 
-<details>
-  <summary>📷 Screenshots</summary>
+### Server `.env`
+```ini
+PORT=5000
+MONGO_URI=your-mongodb-connection-string
+JWT_SECRET=your-secret-key
+```
+Replace all `your-...` values with actual credentials.
 
-![Chill Gamer Screenshot](screenshot.png)
+## 4️⃣ Start the Application
 
-</details>
+### Run Backend
+```bash
+cd server
+npm start
+```
+This starts the backend server at `http://localhost:5000/`.
 
----
-
-<details>
-  <summary>📦 Dependencies</summary>
-
-- React Router  
-- Firebase Authentication  
-- Express.js  
-- MongoDB Atlas  
-- Tailwind CSS  
-
-</details>
-
----
-
-<details>
-  <summary>💻 How to Run Locally</summary>
-
-1. Clone the repository:  
-   ```bash
-   https://github.com/RahulKhanSuvo/chill-gamer.git
+### Run Frontend
+Open a new terminal, then:
+```bash
+cd client
+npm start
+```
+This starts the frontend at `http://localhost:3000/`. 
